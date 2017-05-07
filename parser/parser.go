@@ -8,76 +8,18 @@ import (
 	"strings"
 )
 
-type Class struct {
-	Methods Methods
-	Name    string
-	Line    int
-	Comment string
-	Valid   bool
-}
-
-type Methods []Method
-
-type Method struct {
-	Name    *ast.KeyValueExpr
-	Fn      *ast.KeyValueExpr
-	FnName  string
-	FnLine  int
-	Comment string
-}
-
-type AllComments struct {
-	Source   *token.FileSet
-	Comments []*ast.CommentGroup
-}
-
-func (a *AllComments) findCommentFor(i int) string {
-	var comments *ast.CommentGroup
-	var result []string
-	found := false
-
-	for _, group := range a.Comments {
-		for _, comment := range group.List {
-			line := a.Source.Position(comment.Slash).Line
-			if line == (i - 1) {
-				comments = group
-				found = true
-			}
-		}
-		if found {
-			break
-		}
-	}
-
-	if found {
-		for _, comment := range comments.List {
-			// result = result + comment.Text + "\n"
-			result = append(result, comment.Text)
-		}
-	}
-
-	return strings.Join(result, "\n")
-}
-
-func (a *Class) MatchName(str string) bool {
-	return a.Name == str || (strings.Contains(str, a.Name) && strings.Contains(str, "Object"))
-}
-
-func (a *Class) MatchBuiltInMethods(str string) bool {
-	return strings.Contains(str, "builtin") && strings.Contains(str, "Methods")
-}
-
 func ClassFromFile(filename string) Class {
 	allMethods := []Method{}
 	class := Class{
 		Valid: false,
 	}
 
+	// Define class name
 	qq := strings.Replace(filename, ".go", "", -1)
 	p := strings.Replace(qq, "vm/", "", -1)
 	class.Name = strings.Title(p)
-	// fmt.Println(class.Name)
 
+	// Parse target file
 	fset := token.NewFileSet()
 	f, err := parser.ParseFile(fset, "../rooby/"+filename, nil, parser.ParseComments)
 	if err != nil {
@@ -85,19 +27,24 @@ func ClassFromFile(filename string) Class {
 		return class
 	}
 
+	// Get comments
 	allComments := AllComments{fset, f.Comments}
 	// ast.Print(fset, f.Comments)
 
+	// Find class & methods
 	var methods *ast.ValueSpec
+	// Loop through declarations
 	for _, decl := range f.Decls {
+		// Continue only for general declarations
 		if genDecl, ok := decl.(*ast.GenDecl); ok {
 			for _, spec := range genDecl.Specs {
-				// TODO check if class name matches file name
+				// Assign class line number if found
 				if tSpec, ok := spec.(*ast.TypeSpec); ok && class.MatchName(tSpec.Name.Name) {
 					node := tSpec.Name
 					class.Line = fset.Position(node.NamePos).Line
 					class.Valid = true
 				}
+				// Assign methods if found
 				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchBuiltInMethods(vSpec.Names[0].Name) {
 					methods = vSpec
 				}
@@ -105,19 +52,21 @@ func ClassFromFile(filename string) Class {
 		}
 	}
 
-	// Returns blank class if class definition is not found
+	// Return blank class if class definition is not found
 	if !class.Valid {
 		return class
 	}
 
+	// Retrieve class comments
 	class.Comment = allComments.findCommentFor(class.Line)
-	// fmt.Println(class.Comment)
 
+	// Loop through methods to find each method
 	allExpr := methods.Values[0].(*ast.CompositeLit).Elts
 	var attrs []ast.Expr
 	for _, expr := range allExpr {
 		attrs = expr.(*ast.CompositeLit).Elts
 		method := Method{}
+		// Attributes should only contain "Name" & "Fn" for now
 		for _, attr := range attrs {
 			thisExpr := attr.(*ast.KeyValueExpr)
 			name := thisExpr.Key.(*ast.Ident).Name
