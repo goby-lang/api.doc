@@ -1,4 +1,4 @@
-package main
+package parser
 
 import (
 	"fmt"
@@ -67,7 +67,7 @@ func (a *Class) MatchBuiltInMethods(str string) bool {
 	return strings.Contains(str, "builtin") && strings.Contains(str, "Methods")
 }
 
-func classFromFile(filename string) Class {
+func ClassFromFile(filename string) Class {
 	allMethods := []Method{}
 	class := Class{
 		Valid: false,
@@ -136,11 +136,4 @@ func classFromFile(filename string) Class {
 
 	class.Methods = allMethods
 	return class
-}
-
-func main() {
-	class := classFromFile("vm/boolean.go")
-	fmt.Println(class.Name)
-	fmt.Println(class.Line)
-	fmt.Println(class.Comment)
 }
