@@ -8,20 +8,21 @@ import (
 	"strings"
 )
 
-func ClassFromFile(filename string) Class {
+func ClassFromFile(filepath string) Class {
 	allMethods := []Method{}
 	class := Class{
 		Valid: false,
 	}
 
 	// Define class name
-	qq := strings.Replace(filename, ".go", "", -1)
-	p := strings.Replace(qq, "vm/", "", -1)
-	class.Name = strings.Title(p)
+	split_path := strings.Split(filepath, "/")
+	filename := split_path[len(split_path)-1]
+	filename_no_ext := strings.Replace(filename, ".go", "", -1)
+	class.Name = strings.Title(filename_no_ext)
 
 	// Parse target file
 	fset := token.NewFileSet()
-	f, err := parser.ParseFile(fset, "../rooby/"+filename, nil, parser.ParseComments)
+	f, err := parser.ParseFile(fset, filepath, nil, parser.ParseComments)
 	if err != nil {
 		fmt.Println(err)
 		return class
