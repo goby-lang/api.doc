@@ -10,9 +10,7 @@ import (
 
 func ClassFromFile(filepath string) Class {
 	allMethods := []Method{}
-	class := Class{
-		Valid: false,
-	}
+	class := Class{}
 
 	// Define class name
 	split_path := strings.Split(filepath, "/")
@@ -43,7 +41,6 @@ func ClassFromFile(filepath string) Class {
 				if tSpec, ok := spec.(*ast.TypeSpec); ok && class.MatchName(tSpec.Name.Name) {
 					node := tSpec.Name
 					class.Line = fset.Position(node.NamePos).Line
-					class.Valid = true
 				}
 				// Assign methods if found
 				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchBuiltInMethods(vSpec.Names[0].Name) {
@@ -54,7 +51,12 @@ func ClassFromFile(filepath string) Class {
 	}
 
 	// Return blank class if class definition is not found
-	if !class.Valid {
+	if class.Line == 0 {
+		return class
+	}
+
+	// Return class if there is not built-in methods
+	if methods == nil {
 		return class
 	}
 
@@ -72,12 +74,12 @@ func ClassFromFile(filepath string) Class {
 			thisExpr := attr.(*ast.KeyValueExpr)
 			name := thisExpr.Key.(*ast.Ident).Name
 			if name == "Name" {
-				method.Name = thisExpr
+				// method.Name = thisExpr
 				method.FnName = thisExpr.Value.(*ast.BasicLit).Value
 			}
 			if name == "Fn" {
-				method.Fn = thisExpr
-				method.FnLine = fset.Position(method.Fn.Key.(*ast.Ident).NamePos).Line
+				// method.Fn = thisExpr
+				method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
 				method.Comment = allComments.findCommentFor(method.FnLine)
 			}
 		}

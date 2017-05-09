@@ -5,11 +5,10 @@ import (
 )
 
 type Class struct {
-	Methods Methods
-	Name    string
-	Line    int
-	Comment string
-	Valid   bool
+	Methods Methods `json:"methods"`
+	Name    string  `json:"name"`
+	Line    int     `json:"line"`
+	Comment string  `json:"comment"`
 }
 
 func (a *Class) MatchName(str string) bool {
