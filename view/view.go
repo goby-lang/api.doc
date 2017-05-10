@@ -38,25 +38,21 @@ func panicIf(err error) {
 }
 
 func generateIndexFile(classes Classes) {
-	indexSource, err := ioutil.ReadFile("./view/templates/index.html")
-	panicIf(err)
 	indexFile, err := os.OpenFile("./docs/index.html", os.O_CREATE|os.O_WRONLY, 0777)
 	panicIf(err)
-	indexTemplate, err := template.New("index").Parse(string(indexSource))
+	indexTemplate, err := template.New("index").ParseFiles("./view/templates/index.html", "./view/templates/header.html")
 	panicIf(err)
-	err = indexTemplate.Execute(indexFile, classes)
+	err = indexTemplate.ExecuteTemplate(indexFile, "index", classes)
 	panicIf(err)
 	fmt.Println("Generated: ./docs/index.html")
 }
 
 func generateClassFile(class Class) {
-	classSource, err := ioutil.ReadFile("./view/templates/class.html")
-	panicIf(err)
 	classFile, err := os.OpenFile("./docs/"+class.Filename+".html", os.O_CREATE|os.O_WRONLY, 0777)
 	panicIf(err)
-	classTemplate, err := template.New(class.Filename).Parse(string(classSource))
+	classTemplate, err := template.New(class.Filename).ParseFiles("./view/templates/class.html", "./view/templates/header.html")
 	panicIf(err)
-	err = classTemplate.Execute(classFile, class)
+	err = classTemplate.ExecuteTemplate(classFile, "class", class)
 	panicIf(err)
 	fmt.Println("Generated: ./docs/" + class.Name + ".html")
 }
