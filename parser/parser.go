@@ -5,10 +5,30 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"io/ioutil"
 	"strings"
 )
 
-func ClassFromFile(filepath string) Class {
+func ClassesFromDir(dir string) []Class {
+	classes := []Class{}
+	files, err := ioutil.ReadDir(dir)
+	if err != nil {
+		panic(err)
+	}
+	for _, file := range files {
+		if strings.Contains(file.Name(), "spec.go") {
+			continue
+		}
+		filename := dir + "/" + file.Name()
+		class := classFromFile(filename)
+		if class.Line != 0 {
+			classes = append(classes, class)
+		}
+	}
+	return classes
+}
+
+func classFromFile(filepath string) Class {
 	allMethods := []Method{}
 	class := Class{}
 
