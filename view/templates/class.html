@@ -1,0 +1,9 @@
+<body>
+  <h1>{{.Name}}</h1>
+
+  {{ range .Methods }}
+    <h4>{{.FnName}}</h4>
+    <p>{{.Comment}}</p>
+    <p>[<a href="{{$.Repo}}/tree/{{$.Commit}}/vm/{{$.Filename}}.go#L{{.FnLine}}">source</a>]</p>
+  {{ end }}
+</body>
