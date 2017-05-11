@@ -11,7 +11,7 @@
     {{ range .class.Methods }}
       <h4 class="method">{{.FnName}}</h4>
       <div>{{.Comment}}</div>
-      <p>(<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}">source</a>)</p>
+      <p class="source">(<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}">source</a>)</p>
     {{ end }}
   </div>
 {{ end }}

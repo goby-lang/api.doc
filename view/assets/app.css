@@ -1,5 +1,6 @@
 .logo {
   margin: 22 0 20 45;
+  width: 130px;
 }
 
 .sidebar {
@@ -28,4 +29,8 @@
 .class_name {
   background-color: #F1F1F1;
   padding: 10;
+}
+
+.source {
+  text-align: right;
 }
