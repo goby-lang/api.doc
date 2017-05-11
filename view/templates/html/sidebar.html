@@ -1,0 +1,12 @@
+{{define "sidebar"}}
+  <div class="sidebar col-lg-2">
+    <ul class="list-group">
+      <li class="">All Classes</li>
+      {{ range . }}
+        <li class="list-group-item">
+          <a href="{{.Filename}}.html">{{.Name}}</a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{end}}
