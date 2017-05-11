@@ -95,7 +95,7 @@ func classFromFile(filepath string) Class {
 			name := thisExpr.Key.(*ast.Ident).Name
 			if name == "Name" {
 				// method.Name = thisExpr
-				method.FnName = thisExpr.Value.(*ast.BasicLit).Value
+				method.FnName = strings.Replace(thisExpr.Value.(*ast.BasicLit).Value, "\"", "", -1)
 			}
 			if name == "Fn" {
 				// method.Fn = thisExpr
