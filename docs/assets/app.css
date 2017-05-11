@@ -1,0 +1,31 @@
+.logo {
+  margin: 22 0 20 45;
+}
+
+.sidebar {
+  background-color: white;
+  border-right: 1px solid #c1c1c1;
+  height: 100%;
+  /* position: fixed; */
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li {
+  padding-top: 12px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.method {
+   background-color: #F1F1F1;
+   padding: 5 10 5 10;
+   border-radius: 2px;
+}
+
+.class_name {
+  background-color: #F1F1F1;
+  padding: 10;
+}

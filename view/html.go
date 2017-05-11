@@ -62,5 +62,5 @@ func GenerateHTML(classes Classes) {
 	for _, class := range classes {
 		generateClassFile(classes, class)
 	}
-	copyAsset("sidebar.css")
+	copyAsset("app.css")
 }

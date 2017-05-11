@@ -2,19 +2,14 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="assets/sidebar.css" rel="stylesheet"/>
+    <link href="assets/app.css" rel="stylesheet"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title>Goby API Documentation</title>
   </head>
 
   <body>
-    {{template "navbar" .}}
-
-    <div class="container content">
-      {{template "sidebar" .classes}}
-      {{template "content" .}}
-    </div>
-    
+    {{template "sidebar" .classes}}
+    {{template "content" .}}
   </body>
 
 {{end}}

@@ -1,11 +1,17 @@
 {{define "content"}}
-  <div class="col-lg-10">
-    <h1>{{.class.Name}}</h1>
+  <div class="container col-lg-8">
+    <h1 class="class_name">{{.class.Name}}</h1>
 
+    <h3>Description</h3>
+    <hr />
+    <div>{{.Comment}}</div>
+
+    <h3>Instance Methods</h3>
+    <hr />
     {{ range .class.Methods }}
-      <h4>{{.FnName}}</h4>
-      <p>{{.Comment}}</p>
-      <p>[<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}">source</a>]</p>
+      <h4 class="method">{{.FnName}}</h4>
+      <div>{{.Comment}}</div>
+      <p>(<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}">source</a>)</p>
     {{ end }}
   </div>
 {{ end }}
