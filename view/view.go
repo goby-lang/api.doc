@@ -2,10 +2,7 @@ package view
 
 import (
 	"encoding/json"
-	"fmt"
-	"html/template"
 	"io/ioutil"
-	"os"
 	"strings"
 )
 
@@ -34,32 +31,5 @@ func ReadFrom(filepath string) Classes {
 func panicIf(err error) {
 	if err != nil {
 		panic(err)
-	}
-}
-
-func generateIndexFile(classes Classes) {
-	indexFile, err := os.OpenFile("./docs/index.html", os.O_CREATE|os.O_WRONLY, 0777)
-	panicIf(err)
-	indexTemplate, err := template.New("index").ParseFiles("./view/templates/index.html", "./view/templates/header.html")
-	panicIf(err)
-	err = indexTemplate.ExecuteTemplate(indexFile, "index", classes)
-	panicIf(err)
-	fmt.Println("Generated: ./docs/index.html")
-}
-
-func generateClassFile(class Class) {
-	classFile, err := os.OpenFile("./docs/"+class.Filename+".html", os.O_CREATE|os.O_WRONLY, 0777)
-	panicIf(err)
-	classTemplate, err := template.New(class.Filename).ParseFiles("./view/templates/class.html", "./view/templates/header.html")
-	panicIf(err)
-	err = classTemplate.ExecuteTemplate(classFile, "class", class)
-	panicIf(err)
-	fmt.Println("Generated: ./docs/" + class.Name + ".html")
-}
-
-func Generate(classes Classes) {
-	generateIndexFile(classes)
-	for _, class := range classes {
-		generateClassFile(class)
 	}
 }

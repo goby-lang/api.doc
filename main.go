@@ -19,6 +19,10 @@ func main() {
 	classes := parser.ClassesFromDir(dir())
 	parser.Write("./doc.json", classes)
 
+	os.Remove("./docs")
+	os.Mkdir("./docs", 0777)
+	os.Mkdir("./docs/classes", 0777)
+
 	data := view.ReadFrom("./doc.json")
-	view.Generate(data)
+	view.GenerateMarkdown(data)
 }
