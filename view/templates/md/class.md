@@ -1,6 +1,6 @@
 {{define "class"}}# {{.class.Name}}
 {{ range .class.Methods }}
-## {{.FnName}}
+### {{.FnName}}
 
 {{.Comment}}
 
