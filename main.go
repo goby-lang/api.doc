@@ -19,7 +19,7 @@ func main() {
 	classes := parser.ClassesFromDir(dir())
 	parser.Write("./doc.json", classes)
 
-	os.Remove("./docs")
+	os.RemoveAll("./docs")
 	os.Mkdir("./docs", 0777)
 	os.Mkdir("./docs/classes", 0777)
 
