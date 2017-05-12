@@ -1,4 +1,4 @@
-# API Documentation
+# Goby API Documentation (WIP)
 
 This is the API documentation for goby language.
 
@@ -6,13 +6,13 @@ This is the API documentation for goby language.
 
 Install dependency:
 
-```
+```nohighlight
 go get github.com/russross/blackfriday
 ```
 
 Run in project root:
 
-```
+```nohighlight
 go run *.go
 ```
 
