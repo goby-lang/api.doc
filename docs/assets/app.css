@@ -1,10 +1,11 @@
 .logo {
   margin: 22 0 20 45;
+  width: 130px;
 }
 
 .sidebar {
   background-color: white;
-  border-right: 1px solid #c1c1c1;
+  /* border-right: 1px solid #c1c1c1; */
   height: 100%;
   /* position: fixed; */
 }
@@ -28,4 +29,8 @@
 .class_name {
   background-color: #F1F1F1;
   padding: 10;
+}
+
+.source {
+  text-align: right;
 }
