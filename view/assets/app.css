@@ -7,7 +7,7 @@
   background-color: white;
   /* border-right: 1px solid #c1c1c1; */
   height: 100%;
-  /* position: fixed; */
+  position: absolute;
 }
 
 .sidebar ul {
@@ -18,6 +18,12 @@
   padding-top: 12px;
   font-size: 18px;
   margin-left: 10px;
+}
+
+.content {
+  position: absolute;
+  margin-left: 220px;
+  width: 850px;
 }
 
 .method {

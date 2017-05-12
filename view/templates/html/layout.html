@@ -18,8 +18,10 @@
   </head>
 
   <body>
-    {{template "sidebar" .classes}}
-    {{template "content" .}}
+    <div class="container">
+      {{template "sidebar" .classes}}
+      {{template "content" .}}
+    </div>
   </body>
 
 {{end}}
