@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"io/ioutil"
 	"os"
+	"github.com/russross/blackfriday"
 )
 
 func generateIndexFile(classes Classes) {
@@ -20,6 +21,7 @@ func generateIndexFile(classes Classes) {
 	variables := map[string]interface{}{
 		"classes": classes,
 		"class":   nil,
+		"readme":  template.HTML(readmeHTML("./README.md")),
 	}
 	err = indexTemplate.ExecuteTemplate(indexFile, "layout", variables)
 	panicIf(err)
@@ -55,6 +57,12 @@ func copyAsset(filename string) {
 	fmt.Println("Generated: ./docs/" + filename)
 }
 
+func readmeHTML(filepath string) string {
+	bytes, err := ioutil.ReadFile(filepath)
+	panicIf(err)
+	return string(blackfriday.MarkdownCommon(bytes))
+}
+
 func GenerateHTML(classes Classes) {
 	os.Mkdir("./docs/assets", 0777)
 
@@ -63,4 +71,5 @@ func GenerateHTML(classes Classes) {
 		generateClassFile(classes, class)
 	}
 	copyAsset("app.css")
+	copyAsset("app.js")
 }
