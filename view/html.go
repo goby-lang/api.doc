@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"github.com/russross/blackfriday"
+	"strings"
 )
 
 func generateIndexFile(classes Classes) {
@@ -60,7 +61,9 @@ func copyAsset(filename string) {
 func readmeHTML(filepath string) string {
 	bytes, err := ioutil.ReadFile(filepath)
 	panicIf(err)
-	return string(blackfriday.MarkdownCommon(bytes))
+	html := string(blackfriday.MarkdownCommon(bytes))
+	html = strings.Replace(html, "<code class=\"language-", "<code class=\"", -1)
+	return html
 }
 
 func GenerateHTML(classes Classes) {
