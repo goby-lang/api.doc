@@ -39,13 +39,17 @@ func generateClassFile(classes Classes, class Class) {
 		"./view/templates/html/navbar.html",
 	)
 	panicIf(err)
+	class.Comment = template.HTML(class.Comment)
+	for i := 0; i < len(class.Methods); i++ {
+		class.Methods[i].Comment = template.HTML(class.Methods[i].Comment)
+	}
 	variables := map[string]interface{}{
 		"classes": classes,
 		"class":   class,
 	}
 	err = classTemplate.ExecuteTemplate(classFile, "layout", variables)
 	panicIf(err)
-	fmt.Println("Generated: ./docs/" + class.Name + ".html")
+	fmt.Println("Generated: ./docs/" + class.Filename + ".html")
 }
 
 func copyAsset(filename string) {
