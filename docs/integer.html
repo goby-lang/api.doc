@@ -93,7 +93,12 @@
 
     <h2>Description</h2>
     <hr />
-    <div><p>IntegerObject represents integer instances</p>
+    <div><p>Integer represents number objects which can bring into mathematical calculations.
+//</p>
+
+<pre><code class="language-ruby">1 + 1 # =&gt; 2
+2 * 2 # =&gt; 4
+</code></pre>
 </div>
 
     <h2>Instance Methods</h2>
@@ -103,9 +108,10 @@
         <span class="prefix">#</span>
         <span class="title">&#43;</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns the sum of self and another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L45" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L51" target="_blank">
           source
         </a>)
       </p>
@@ -114,9 +120,10 @@
         <span class="prefix">#</span>
         <span class="title">-</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns the subtraction of another Integer from self.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L62" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L69" target="_blank">
           source
         </a>)
       </p>
@@ -125,9 +132,10 @@
         <span class="prefix">#</span>
         <span class="title">*</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns self multiplying another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L79" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L87" target="_blank">
           source
         </a>)
       </p>
@@ -136,9 +144,10 @@
         <span class="prefix">#</span>
         <span class="title">**</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns self squaring another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L96" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L105" target="_blank">
           source
         </a>)
       </p>
@@ -147,9 +156,10 @@
         <span class="prefix">#</span>
         <span class="title">/</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns self divided by another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L114" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L124" target="_blank">
           source
         </a>)
       </p>
@@ -158,9 +168,10 @@
         <span class="prefix">#</span>
         <span class="title">&gt;</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is larger than another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L131" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L142" target="_blank">
           source
         </a>)
       </p>
@@ -169,9 +180,10 @@
         <span class="prefix">#</span>
         <span class="title">&gt;=</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is larger than or equals to another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L153" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L165" target="_blank">
           source
         </a>)
       </p>
@@ -180,9 +192,10 @@
         <span class="prefix">#</span>
         <span class="title">&lt;</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is smaller than another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L175" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L188" target="_blank">
           source
         </a>)
       </p>
@@ -191,9 +204,10 @@
         <span class="prefix">#</span>
         <span class="title">&lt;=</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is smaller than or equals to another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L197" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L211" target="_blank">
           source
         </a>)
       </p>
@@ -202,9 +216,10 @@
         <span class="prefix">#</span>
         <span class="title">&lt;=&gt;</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns 1 if self is larger than the incoming Integer, -1 if smaller. Otherwise 0.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L219" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L234" target="_blank">
           source
         </a>)
       </p>
@@ -213,9 +228,10 @@
         <span class="prefix">#</span>
         <span class="title">==</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is equal to another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L244" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L260" target="_blank">
           source
         </a>)
       </p>
@@ -224,9 +240,10 @@
         <span class="prefix">#</span>
         <span class="title">!=</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is not equal to another Integer.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L266" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L283" target="_blank">
           source
         </a>)
       </p>
@@ -235,9 +252,10 @@
         <span class="prefix">#</span>
         <span class="title">&#43;&#43;</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Adds 1 to self and returns.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L288" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L306" target="_blank">
           source
         </a>)
       </p>
@@ -246,9 +264,10 @@
         <span class="prefix">#</span>
         <span class="title">--</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Substracts 1 from self and returns.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L299" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L318" target="_blank">
           source
         </a>)
       </p>
@@ -257,9 +276,10 @@
         <span class="prefix">#</span>
         <span class="title">to_s</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns a <code>String</code> representation of self.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L310" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L330" target="_blank">
           source
         </a>)
       </p>
@@ -268,9 +288,10 @@
         <span class="prefix">#</span>
         <span class="title">to_i</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns self.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L321" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L342" target="_blank">
           source
         </a>)
       </p>
@@ -279,9 +300,10 @@
         <span class="prefix">#</span>
         <span class="title">even</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is even.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L329" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L351" target="_blank">
           source
         </a>)
       </p>
@@ -290,9 +312,14 @@
         <span class="prefix">#</span>
         <span class="title">odd</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns if self is odd.</p>
+
+<pre><code class="language-ruby">3.odd # =&gt; true
+4.odd # =&gt; false
+</code></pre>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L345" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L373" target="_blank">
           source
         </a>)
       </p>
@@ -301,9 +328,10 @@
         <span class="prefix">#</span>
         <span class="title">next</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns self + 1.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L360" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L389" target="_blank">
           source
         </a>)
       </p>
@@ -312,9 +340,10 @@
         <span class="prefix">#</span>
         <span class="title">pred</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Returns self - 1.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L369" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L399" target="_blank">
           source
         </a>)
       </p>
@@ -323,9 +352,10 @@
         <span class="prefix">#</span>
         <span class="title">times</span>
       </h4>
-      <div class="method-comment"></div>
+      <div class="method-comment"><p>Yields a block a number of times equals to self.</p>
+</div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L378" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L409" target="_blank">
           source
         </a>)
       </p>
