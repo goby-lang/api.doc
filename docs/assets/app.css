@@ -1,3 +1,39 @@
+body {
+  font-family: "Avenir", "Tahoma", "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+  .content {
+    width: 650px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+  .sidebar {
+    width: 175px;
+  }
+  .content {
+    width: 850px;
+  }
+}
+
 .logo {
   margin: 22 0 20 45;
   width: 130px;
@@ -7,7 +43,7 @@
   background-color: white;
   /* border-right: 1px solid #c1c1c1; */
   height: 100%;
-  /* position: fixed; */
+  position: absolute;
 }
 
 .sidebar ul {
@@ -18,12 +54,35 @@
   padding-top: 12px;
   font-size: 18px;
   margin-left: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 
-.method {
+.sidebar ul li:hover {
+  background-color: #eeeeee;
+}
+
+body .container .sidebar ul a {
+  text-decoration: none;
+}
+
+.content {
+  position: absolute;
+  margin-left: 220px;
+}
+
+.method .title {
    background-color: #F1F1F1;
    padding: 5 10 5 10;
    border-radius: 2px;
+   margin-left: 20px;
+   display: block;
+   margin-top: -25px;
+}
+
+.method .prefix {
+  font-size: 20px;
+  color: #949494;
 }
 
 .class_name {
@@ -33,4 +92,18 @@
 
 .source {
   text-align: right;
+}
+
+.method-comment {
+  margin-left: 30px;
+}
+
+pre code.plain {
+  background-color: #e6e6e6;
+  display: block;
+  border-radius: 2px;
+  line-height: 20px;
+  padding-left: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

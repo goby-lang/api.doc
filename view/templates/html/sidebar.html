@@ -3,9 +3,11 @@
     <a href="index.html"><img src="https://avatars0.githubusercontent.com/u/27800482?v=3&s=200" alt="" class="logo" /></a>
     <ul class="">
       {{ range . }}
-        <li class="">
-          <a href="{{.Filename}}.html">{{.Name}}</a>
-        </li>
+        <a href="{{.Filename}}.html">
+          <li class="">
+            {{.Name}}
+          </li>
+        </a>
       {{ end }}
     </ul>
   </div>

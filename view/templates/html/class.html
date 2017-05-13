@@ -2,16 +2,23 @@
   <div class="content">
     <h1 class="class_name">{{.class.Name}}</h1>
 
-    <h3>Description</h3>
+    <h2>Description</h2>
     <hr />
     <div>{{.class.Comment}}</div>
 
-    <h3>Instance Methods</h3>
+    <h2>Instance Methods</h2>
     <hr />
     {{ range .class.Methods }}
-      <h4 class="method">{{.FnName}}</h4>
-      <div>{{.Comment}}</div>
-      <p class="source">(<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}">source</a>)</p>
+      <h4 class="method">
+        <span class="prefix">#</span>
+        <span class="title">{{.FnName}}</span>
+      </h4>
+      <div class="method-comment">{{.Comment}}</div>
+      <p class="source">
+        (<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}" target="_blank">
+          source
+        </a>)
+      </p>
     {{ end }}
   </div>
 {{ end }}

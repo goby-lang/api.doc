@@ -39,9 +39,11 @@ func generateClassFile(classes Classes, class Class) {
 		"./view/templates/html/navbar.html",
 	)
 	panicIf(err)
-	class.Comment = template.HTML(class.Comment)
+	classComment := blackfriday.MarkdownCommon([]byte(class.Comment))
+	class.Comment = template.HTML(string(classComment))
 	for i := 0; i < len(class.Methods); i++ {
-		class.Methods[i].Comment = template.HTML(class.Methods[i].Comment)
+		methodComment := blackfriday.MarkdownCommon([]byte(class.Methods[i].Comment))
+		class.Methods[i].Comment = template.HTML(methodComment)
 	}
 	variables := map[string]interface{}{
 		"classes": classes,
