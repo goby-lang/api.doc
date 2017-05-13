@@ -8,13 +8,13 @@ This is the API documentation for goby language.
 
 Install dependency:
 
-```nohighlight
+```plain
 go get github.com/russross/blackfriday
 ```
 
 Run in project root:
 
-```nohighlight
+```plain
 go run *.go
 ```
 
