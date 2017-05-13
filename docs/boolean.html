@@ -3,14 +3,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/railscasts.min.css">
     <link href="assets/app.css" rel="stylesheet"/>
 
 
     
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     <script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="assets/app.js"></script>
 
@@ -18,86 +18,149 @@
   </head>
 
   <body>
-    
-  <div class="sidebar col-lg-2">
+    <div class="container">
+      
+  <div class="sidebar">
     <a href="index.html"><img src="https://avatars0.githubusercontent.com/u/27800482?v=3&s=200" alt="" class="logo" /></a>
     <ul class="">
       
-        <li class="">
-          <a href="array.html">Array</a>
-        </li>
+        <a href="array.html">
+          <li class="">
+            Array
+          </li>
+        </a>
       
-        <li class="">
-          <a href="boolean.html">Boolean</a>
-        </li>
+        <a href="boolean.html">
+          <li class="">
+            Boolean
+          </li>
+        </a>
       
-        <li class="">
-          <a href="class.html">Class</a>
-        </li>
+        <a href="class.html">
+          <li class="">
+            Class
+          </li>
+        </a>
       
-        <li class="">
-          <a href="error.html">Error</a>
-        </li>
+        <a href="error.html">
+          <li class="">
+            Error
+          </li>
+        </a>
       
-        <li class="">
-          <a href="hash.html">Hash</a>
-        </li>
+        <a href="hash.html">
+          <li class="">
+            Hash
+          </li>
+        </a>
       
-        <li class="">
-          <a href="integer.html">Integer</a>
-        </li>
+        <a href="integer.html">
+          <li class="">
+            Integer
+          </li>
+        </a>
       
-        <li class="">
-          <a href="method.html">Method</a>
-        </li>
+        <a href="method.html">
+          <li class="">
+            Method
+          </li>
+        </a>
       
-        <li class="">
-          <a href="null.html">Null</a>
-        </li>
+        <a href="null.html">
+          <li class="">
+            Null
+          </li>
+        </a>
       
-        <li class="">
-          <a href="object.html">Object</a>
-        </li>
+        <a href="object.html">
+          <li class="">
+            Object
+          </li>
+        </a>
       
-        <li class="">
-          <a href="string.html">String</a>
-        </li>
+        <a href="string.html">
+          <li class="">
+            String
+          </li>
+        </a>
       
     </ul>
   </div>
 
-    
-  <div class="container col-lg-9">
+      
+  <div class="content">
     <h1 class="class_name">Boolean</h1>
 
-    <h3>Description</h3>
+    <h2>Description</h2>
     <hr />
-    <div></div>
+    <div><p>BooleanObject represents boolean object in goby</p>
+</div>
 
-    <h3>Instance Methods</h3>
+    <h2>Instance Methods</h2>
     <hr />
     
-      <h4 class="method">==</h4>
-      <div></div>
-      <p class="source">(<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L48">source</a>)</p>
+      <h4 class="method">
+        <span class="prefix">#</span>
+        <span class="title">==</span>
+      </h4>
+      <div class="method-comment"><p>Returns TRUE if incoming value is also TRUE</p>
+
+<pre><code class="language-ruby">true == true
+# =&gt; true
+</code></pre>
+</div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L54" target="_blank">
+          source
+        </a>)
+      </p>
     
-      <h4 class="method">!=</h4>
-      <div></div>
-      <p class="source">(<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L76">source</a>)</p>
+      <h4 class="method">
+        <span class="prefix">#</span>
+        <span class="title">!=</span>
+      </h4>
+      <div class="method-comment"></div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L82" target="_blank">
+          source
+        </a>)
+      </p>
     
-      <h4 class="method">!</h4>
-      <div></div>
-      <p class="source">(<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L104">source</a>)</p>
+      <h4 class="method">
+        <span class="prefix">#</span>
+        <span class="title">!</span>
+      </h4>
+      <div class="method-comment"></div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L110" target="_blank">
+          source
+        </a>)
+      </p>
     
-      <h4 class="method">&amp;&amp;</h4>
-      <div></div>
-      <p class="source">(<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L119">source</a>)</p>
+      <h4 class="method">
+        <span class="prefix">#</span>
+        <span class="title">&amp;&amp;</span>
+      </h4>
+      <div class="method-comment"></div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L125" target="_blank">
+          source
+        </a>)
+      </p>
     
-      <h4 class="method">||</h4>
-      <div></div>
-      <p class="source">(<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L141">source</a>)</p>
+      <h4 class="method">
+        <span class="prefix">#</span>
+        <span class="title">||</span>
+      </h4>
+      <div class="method-comment"></div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/boolean.go#L147" target="_blank">
+          source
+        </a>)
+      </p>
     
   </div>
 
+    </div>
   </body>
 

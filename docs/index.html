@@ -3,14 +3,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/railscasts.min.css">
     <link href="assets/app.css" rel="stylesheet"/>
 
 
     
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     <script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="assets/app.js"></script>
 
@@ -18,57 +18,80 @@
   </head>
 
   <body>
-    
-  <div class="sidebar col-lg-2">
+    <div class="container">
+      
+  <div class="sidebar">
     <a href="index.html"><img src="https://avatars0.githubusercontent.com/u/27800482?v=3&s=200" alt="" class="logo" /></a>
     <ul class="">
       
-        <li class="">
-          <a href="array.html">Array</a>
-        </li>
+        <a href="array.html">
+          <li class="">
+            Array
+          </li>
+        </a>
       
-        <li class="">
-          <a href="boolean.html">Boolean</a>
-        </li>
+        <a href="boolean.html">
+          <li class="">
+            Boolean
+          </li>
+        </a>
       
-        <li class="">
-          <a href="class.html">Class</a>
-        </li>
+        <a href="class.html">
+          <li class="">
+            Class
+          </li>
+        </a>
       
-        <li class="">
-          <a href="error.html">Error</a>
-        </li>
+        <a href="error.html">
+          <li class="">
+            Error
+          </li>
+        </a>
       
-        <li class="">
-          <a href="hash.html">Hash</a>
-        </li>
+        <a href="hash.html">
+          <li class="">
+            Hash
+          </li>
+        </a>
       
-        <li class="">
-          <a href="integer.html">Integer</a>
-        </li>
+        <a href="integer.html">
+          <li class="">
+            Integer
+          </li>
+        </a>
       
-        <li class="">
-          <a href="method.html">Method</a>
-        </li>
+        <a href="method.html">
+          <li class="">
+            Method
+          </li>
+        </a>
       
-        <li class="">
-          <a href="null.html">Null</a>
-        </li>
+        <a href="null.html">
+          <li class="">
+            Null
+          </li>
+        </a>
       
-        <li class="">
-          <a href="object.html">Object</a>
-        </li>
+        <a href="object.html">
+          <li class="">
+            Object
+          </li>
+        </a>
       
-        <li class="">
-          <a href="string.html">String</a>
-        </li>
+        <a href="string.html">
+          <li class="">
+            String
+          </li>
+        </a>
       
     </ul>
   </div>
 
-    
-  <div class="container col-lg-8">
-    <h1>API Documentation</h1>
+      
+  <div class="content">
+    <h1>Goby API Documentation (WIP)</h1>
+
+<p><a href="https://codeclimate.com/github/goby-lang/api.doc"><img src="https://codeclimate.com/github/goby-lang/api.doc/badges/gpa.svg" alt="Code Climate" /></a></p>
 
 <p>This is the API documentation for goby language.</p>
 
@@ -76,35 +99,18 @@
 
 <p>Install dependency:</p>
 
-<pre><code class="nohighlight">go get github.com/russross/blackfriday
+<pre><code class="plain">go get github.com/russross/blackfriday
 </code></pre>
 
 <p>Run in project root:</p>
 
-<pre><code class="nohighlight">go run *.go
+<pre><code class="plain">go run *.go
 </code></pre>
 
 <p>That should generate new docs in <code>/docs</code> directory. Commit and push them.</p>
 
-<pre><code class="go">package main
-
-import (
-  &quot;fmt&quot;
-)
-
-func main() {
-  fmt.Println(&quot;foobar&quot;)
-}
-</code></pre>
-
-<pre><code class="ruby">class Foo
-  def bar
-    true == &quot;1234556&quot;
-  end
-end
-</code></pre>
-
   </div>
 
+    </div>
   </body>
 
