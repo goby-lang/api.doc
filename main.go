@@ -3,7 +3,6 @@ package main
 import (
 	"./parser"
 	"./view"
-	// "fmt"
 	"os"
 )
 
@@ -24,6 +23,5 @@ func main() {
 	os.Mkdir("./docs/classes", 0777)
 
 	data := view.ReadFrom("./doc.json")
-	// view.GenerateMarkdown(data)
 	view.GenerateHTML(data)
 }
