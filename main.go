@@ -3,8 +3,14 @@ package main
 import (
 	"./parser"
 	"./view"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
 	"os"
 )
+
+type Settings struct {
+	GobyPath string `yaml:"gobypath"`
+}
 
 func GOPATH() string {
 	if os.Getenv("GOPATH") == "" {
@@ -13,8 +19,21 @@ func GOPATH() string {
 	return os.Getenv("GOPATH")
 }
 
+func GetSettings() Settings {
+	settings := Settings{}
+	yamlFile, err := ioutil.ReadFile("settings.yml")
+	if err != nil {
+		panic(err)
+	}
+	err = yaml.Unmarshal(yamlFile, &settings)
+	if err != nil {
+		panic(err)
+	}
+	return settings
+}
+
 func root() string {
-	return GOPATH() + "/src/github.com/goby-lang/goby"
+	return GOPATH() + GetSettings().GobyPath
 }
 
 func dir() string {
