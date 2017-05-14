@@ -97,21 +97,34 @@
 
 <p>The doc is hosted on: <a href="https://goby-lang.github.io/api.doc/">https://goby-lang.github.io/api.doc/</a></p>
 
-<h2>Contributing to Parser</h2>
+<h2>Setup &amp; Update Goby Documentation</h2>
 
-<p>Install dependency:</p>
+<p>Follow the steps to setup a running parser.</p>
+
+<ul>
+<li>Fork &amp; Clone (or sync if you already have a copy <a href="https://help.github.com/articles/syncing-a-fork/">by this instruction</a>)</li>
+<li>Clone <a href="https://github.com/goby-lang/goby">Goby language project</a>. The best way to do it is using Go&rsquo;s <code>go get</code> command. By default, this parser looks for <code>[GOPATH]/src/github.com/goby-lang/goby/vm</code> directory. If you&rsquo;re new to Golang, make sure you&rsquo;ve setup <code>GOPATH</code> and clone the project following Go&rsquo;s convention.</li>
+<li>Install dependency:</li>
+</ul>
 
 <pre><code class="plain">go get github.com/russross/blackfriday
 </code></pre>
 
-<p>Run in project root:</p>
+<ul>
+<li>Update <a href="https://github.com/goby-lang/api.doc/blob/master/settings.yml">settings.yml</a> if necessary.</li>
+<li>Make sure the following command runs without any error:</li>
+</ul>
 
 <pre><code class="plain">go run *.go
 </code></pre>
 
-<p>That should generate new docs in <code>/docs</code> directory. Commit and push them.</p>
+<p>This should generate (or overwrite) new docs in <code>/docs</code> directory.</p>
 
-<h2>Documenting Code</h2>
+<p>If you want to update the documentation, make sure you checkout to the desired branch for Goby project. Also update the version number in <code>settings.yml</code>.</p>
+
+<p>After that, commit and push them for update. GitHub will handle the rest.</p>
+
+<h2>Documenting Goby Code</h2>
 
 <p>We use Markdown to document. All markdown syntax are supported.</p>
 
