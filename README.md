@@ -1,4 +1,4 @@
-# Goby API Documentation (WIP)
+# Goby API Documentation
 
 [![Code Climate](https://codeclimate.com/github/goby-lang/api.doc/badges/gpa.svg)](https://codeclimate.com/github/goby-lang/api.doc)
 
