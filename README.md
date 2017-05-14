@@ -27,7 +27,7 @@ go run *.go
 
 This should generate (or overwrite) new docs in `/docs` directory. 
 
-If you want to update the documentation, make sure you checkout to the desired branch for Goby project. Also update the version number in `settings.yml`.
+If you want to update the documentation, make sure you checkout to the desired branch for Goby project.
 
 After that, commit and push them for update. GitHub will handle the rest.
 
