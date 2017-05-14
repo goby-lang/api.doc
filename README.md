@@ -6,23 +6,32 @@ This is the API documentation for goby language.
 
 The doc is hosted on: https://goby-lang.github.io/api.doc/
 
-## Contributing to Parser
+## Setup & Update Goby Documentation
 
-Install dependency:
+Follow the steps to setup a running parser.
+
+- Fork & Clone (or sync if you already have a copy [by this instruction](https://help.github.com/articles/syncing-a-fork/))
+- Clone [Goby language project](https://github.com/goby-lang/goby). The best way to do it is using Go's `go get` command. By default, this parser looks for `[GOPATH]/src/github.com/goby-lang/goby/vm` directory. If you're new to Golang, make sure you've setup `GOPATH` and clone the project following Go's convention.
+- Install dependency:
 
 ```plain
 go get github.com/russross/blackfriday
 ```
 
-Run in project root:
+- Update [settings.yml](https://github.com/goby-lang/api.doc/blob/master/settings.yml) if necessary.
+- Make sure the following command runs without any error:
 
 ```plain
 go run *.go
 ```
 
-That should generate new docs in `/docs` directory. Commit and push them.
+This should generate (or overwrite) new docs in `/docs` directory. 
 
-## Documenting Code
+If you want to update the documentation, make sure you checkout to the desired branch for Goby project. Also update the version number in `settings.yml`.
+
+After that, commit and push them for update. GitHub will handle the rest.
+
+## Documenting Goby Code
 
 We use Markdown to document. All markdown syntax are supported.
 
