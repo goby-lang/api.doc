@@ -6,8 +6,15 @@ import (
 	"os"
 )
 
+func GOPATH() string {
+	if os.Getenv("GOPATH") == "" {
+		panic("Environment varialbe 'GOPATH' is not set. Setup before continue.")
+	}
+	return os.Getenv("GOPATH")
+}
+
 func root() string {
-	return os.Getenv("GOPATH") + "/src/github.com/goby-lang/goby"
+	return GOPATH() + "/src/github.com/goby-lang/goby"
 }
 
 func dir() string {
