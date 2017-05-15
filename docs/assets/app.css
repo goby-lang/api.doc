@@ -107,3 +107,10 @@ pre code.plain {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+code {
+  background-color: #e6e6e6;
+  border-radius: 2px;
+  line-height: 20px;
+  padding: 2 6 3 6;
+}
