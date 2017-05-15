@@ -74,14 +74,13 @@ func classFromFile(filepath string) Class {
 	if class.Line == 0 {
 		return class
 	}
+	// Retrieve class comments
+	class.Comment = allComments.findCommentFor(class.Line)
 
 	// Return class if there is not built-in methods
 	if methods == nil {
 		return class
 	}
-
-	// Retrieve class comments
-	class.Comment = allComments.findCommentFor(class.Line)
 
 	// Loop through methods to find each method
 	allExpr := methods.Values[0].(*ast.CompositeLit).Elts
