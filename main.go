@@ -10,6 +10,8 @@ import (
 
 type Settings struct {
 	GobyPath string `yaml:"gobypath"`
+	Repo     string `yaml:"repo"`
+	Commit   string `yaml:"commit"`
 }
 
 func GOPATH() string {
@@ -28,6 +30,12 @@ func GetSettings() Settings {
 	err = yaml.Unmarshal(yamlFile, &settings)
 	if err != nil {
 		panic(err)
+	}
+	if settings.Repo == "" {
+		panic("Missing 'repo' attribute in /settings.yml")
+	}
+	if settings.Commit == "" {
+		panic("Missing 'commit' attribute in /settings.yml")
 	}
 	return settings
 }
@@ -48,6 +56,7 @@ func main() {
 	os.Mkdir("./docs", 0777)
 	os.Mkdir("./docs/classes", 0777)
 
-	data := view.ReadFrom("./doc.json")
+	settings := GetSettings()
+	data := view.ReadFrom("./doc.json", settings.Repo, settings.Commit)
 	view.GenerateHTML(data)
 }

@@ -1,1 +1,21 @@
+# 'gobypath' represents the local path of Goby project.
+# The parser reads from this path to parse documentation for all classes.
+# It will be prefixed with $GOPATH when used.
+#
+# For example, if your $GOPATH is '/home/ubuntu',
+# and your gobypath is '/src/github.com/goby-lang/goby',
+# then the full path will be '/home/ubuntu/src/github.com/goby-lang/goby'.
+#
+# You don't have to specify '/vm' directory.
 gobypath: "/src/github.com/goby-lang/goby"
+
+# 'repo' and 'commit' are used for building urls for all classes and methods.
+# Users can trace the source of each method by clicking the 'source' link next to the documentation. 
+# 
+# For example, if there is a Integer#to_s method on line 20, then the parser will generate a url for this method:
+#
+#     "https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L20"
+#
+# The source always refers to a specific commit, so don't put in branch name like 'master' or 'development'.
+repo: "https://github.com/goby-lang/goby"
+commit: "f32c1fcbfd7e1df021948de1065d342e95ebd03d"
