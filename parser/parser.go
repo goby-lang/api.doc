@@ -95,10 +95,10 @@ func classFromFile(filepath string) Class {
 			if name == "Name" {
 				// method.Name = thisExpr
 				method.FnName = strings.Replace(thisExpr.Value.(*ast.BasicLit).Value, "\"", "", -1)
+				method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
 			}
 			if name == "Fn" {
 				// method.Fn = thisExpr
-				method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
 				method.Comment = allComments.findCommentFor(method.FnLine)
 			}
 		}
