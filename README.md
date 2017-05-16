@@ -58,7 +58,7 @@ type IntegerObject struct {
 
 Methods of a class are stored in an array, with its name prefixed with `builtin` and suffixed with `Methods`. For example, the name for `Integer` class is `builtinIntegerMethods`.
 
-Each method comes with two keys, `Fn` and `Name`. The document of a method comes right above `Fn`. For example:
+Each method comes with two keys, `Fn` and `Name`. The document of a method comes right above `Name`. For example:
 
 ```go
 var builtinIntegerMethods = []*BuiltInMethod{
@@ -68,15 +68,15 @@ var builtinIntegerMethods = []*BuiltInMethod{
     // ```
     // 1 + 1
     // ```
+    Name: "+",
     Fn: func(receiver Object) builtinMethodBody {
       // ...
     },
-    Name: "+",
   },
 }
 ```
 
-Remember to leave a space after `//`.
+Remember to leave one space after `//`.
 
 ### Others
 
