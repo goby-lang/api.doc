@@ -60,7 +60,7 @@ func classFromFile(filepath string) Class {
 					class.Line = fset.Position(node.NamePos).Line
 				}
 				// Assign methods if found
-				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchBuiltInMethods(vSpec.Names[0].Name) {
+				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchInstanceMethods(vSpec.Names[0].Name) {
 					methods = vSpec
 				}
 			}
