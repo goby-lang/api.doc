@@ -150,7 +150,7 @@ type IntegerObject struct {
 
 <p>Methods of a class are stored in an array, with its name prefixed with <code>builtin</code> and suffixed with <code>Methods</code>. For example, the name for <code>Integer</code> class is <code>builtinIntegerMethods</code>.</p>
 
-<p>Each method comes with two keys, <code>Fn</code> and <code>Name</code>. The document of a method comes right above <code>Fn</code>. For example:</p>
+<p>Each method comes with two keys, <code>Fn</code> and <code>Name</code>. The document of a method comes right above <code>Name</code>. For example:</p>
 
 <pre><code class="go">var builtinIntegerMethods = []*BuiltInMethod{
   {
@@ -159,15 +159,15 @@ type IntegerObject struct {
     // ```
     // 1 + 1
     // ```
+    Name: &quot;+&quot;,
     Fn: func(receiver Object) builtinMethodBody {
       // ...
     },
-    Name: &quot;+&quot;,
   },
 }
 </code></pre>
 
-<p>Remember to leave a space after <code>//</code>.</p>
+<p>Remember to leave one space after <code>//</code>.</p>
 
 <h3>Others</h3>
 
