@@ -33,12 +33,7 @@ func ClassesFromDir(dir string) []Class {
 func classFromFile(filepath string) Class {
 	allMethods := []Method{}
 	class := Class{}
-
-	// Define class name
-	split_path := strings.Split(filepath, "/")
-	filename := split_path[len(split_path)-1]
-	filename_no_ext := strings.Replace(filename, ".go", "", -1)
-	class.Name = strings.Title(filename_no_ext)
+	class.SetClassname(filepath)
 
 	// Parse target file
 	fset := token.NewFileSet()

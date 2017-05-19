@@ -18,10 +18,22 @@ type Class struct {
 	Repo            string
 }
 
-func (a *Class) MatchName(str string) bool {
-	return a.Name == str || (strings.Contains(str, a.Name) && strings.Contains(str, "Object"))
+func (c *Class) MatchName(str string) bool {
+	return c.Name == str || (strings.Contains(str, c.Name) && strings.Contains(str, "Object"))
 }
 
-func (a *Class) MatchBuiltInMethods(str string) bool {
+func (c *Class) MatchBuiltInMethods(str string) bool {
 	return strings.Contains(str, "builtin") && strings.Contains(str, "Methods")
+}
+
+func (c *Class) SetClassname(filepath string) {
+	split_path := strings.Split(filepath, "/")
+	filename := split_path[len(split_path)-1]
+	filename_no_ext := strings.Replace(filename, ".go", "", -1)
+
+	name := ""
+	for _, segment := range strings.Split(filename_no_ext, "_") {
+		name = name + strings.Title(segment)
+	}
+	c.Name = name
 }
