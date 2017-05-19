@@ -41,9 +41,9 @@ func generateClassFile(classes Classes, class Class) {
 	panicIf(err)
 	classComment := blackfriday.MarkdownCommon([]byte(class.Comment))
 	class.Comment = template.HTML(string(classComment))
-	for i := 0; i < len(class.Methods); i++ {
-		methodComment := blackfriday.MarkdownCommon([]byte(class.Methods[i].Comment))
-		class.Methods[i].Comment = template.HTML(methodComment)
+	for i := 0; i < len(class.InstanceMethods); i++ {
+		methodComment := blackfriday.MarkdownCommon([]byte(class.InstanceMethods[i].Comment))
+		class.InstanceMethods[i].Comment = template.HTML(methodComment)
 	}
 	variables := map[string]interface{}{
 		"classes": classes,

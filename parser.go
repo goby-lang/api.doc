@@ -105,7 +105,7 @@ func classFromFile(filepath string) Class {
 		allMethods = append(allMethods, method)
 	}
 
-	class.Methods = allMethods
+	class.InstanceMethods = allMethods
 	return class
 }
 

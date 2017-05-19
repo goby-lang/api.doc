@@ -8,14 +8,14 @@ import (
 type Classes []Class
 
 type Class struct {
-	Methods Methods `json:"methods"`
-	Name    string  `json:"name"`
-	Line    int     `json:"line"`
-	// Comment string  `json:"comment"`
-	Comment  template.HTML `json:"comment"`
-	Filename string
-	Commit   string
-	Repo     string
+	ClassMethods    Methods       `json:"class_methods"`
+	InstanceMethods Methods       `json:"instance_methods"`
+	Name            string        `json:"name"`
+	Line            int           `json:"line"`
+	Comment         template.HTML `json:"comment"`
+	Filename        string
+	Commit          string
+	Repo            string
 }
 
 func (a *Class) MatchName(str string) bool {

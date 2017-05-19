@@ -126,61 +126,7 @@
 
 <h2>Documenting Goby Code</h2>
 
-<p>We use Markdown to document. All markdown syntax are supported.</p>
-
-<h3>Documenting Classes</h3>
-
-<p>All classes can be found in <code>/vm</code> directory. Each class is represented by a file. For example, you can find <code>Integer</code> class in <code>integer.go</code> file.</p>
-
-<p>The class definition can be found with the <code>type</code> named as the filename or suffixed with &ldquo;Object&rdquo;. The documentation for this class is right above this <code>type</code>. For example, <code>Integer</code> class is documented as:</p>
-
-<pre><code class="go">// Integer represents number objects which can bring into mathematical calculations.
-//
-// ```
-// 1 + 1 # =&gt; 2
-// 2 * 2 # =&gt; 4
-// ```
-type IntegerObject struct {
-  Class *RInteger
-  Value int
-}
-</code></pre>
-
-<h3>Documenting Methods</h3>
-
-<p>Methods of a class are stored in an array, with its name prefixed with <code>builtin</code> and suffixed with <code>Methods</code>. For example, the name for <code>Integer</code> class is <code>builtinIntegerMethods</code>.</p>
-
-<p>Each method comes with two keys, <code>Fn</code> and <code>Name</code>. The document of a method comes right above <code>Name</code>. For example:</p>
-
-<pre><code class="go">var builtinIntegerMethods = []*BuiltInMethod{
-  {
-    // Returns the sum of self and another Integer.
-    //
-    // ```
-    // 1 + 1
-    // ```
-    Name: &quot;+&quot;,
-    Fn: func(receiver Object) builtinMethodBody {
-      // ...
-    },
-  },
-}
-</code></pre>
-
-<p>Remember to leave one space after <code>//</code>.</p>
-
-<h3>Others</h3>
-
-<p>Currently the documentation only supports <code>//</code> comments, not <code>/* */</code>. The following style will not be parsed:</p>
-
-<pre><code class="go">/*
-  Integer represents number objects which can bring into mathematical calculations.
-*/
-type IntegerObject struct {
-  Class *RInteger
-  Value int
-}
-</code></pre>
+<p>Go to <a href="https://github.com/goby-lang/goby/wiki/Documenting-Goby-Code">Goby wiki</a>.</p>
 
   </div>
 
