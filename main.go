@@ -1,62 +1,20 @@
 package main
 
 import (
-	"./parser"
-	"./view"
-	"gopkg.in/yaml.v2"
-	"io/ioutil"
+	// "./parser"
+	// "./view"
 	"os"
 )
 
-type Settings struct {
-	GobyPath string `yaml:"gobypath"`
-	Repo     string `yaml:"repo"`
-	Commit   string `yaml:"commit"`
-}
-
-func GOPATH() string {
-	if os.Getenv("GOPATH") == "" {
-		panic("Environment varialbe 'GOPATH' is not set. Setup before continue.")
-	}
-	return os.Getenv("GOPATH")
-}
-
-func GetSettings() Settings {
-	settings := Settings{}
-	yamlFile, err := ioutil.ReadFile("settings.yml")
-	if err != nil {
-		panic(err)
-	}
-	err = yaml.Unmarshal(yamlFile, &settings)
-	if err != nil {
-		panic(err)
-	}
-	if settings.Repo == "" {
-		panic("Missing 'repo' attribute in /settings.yml")
-	}
-	if settings.Commit == "" {
-		panic("Missing 'commit' attribute in /settings.yml")
-	}
-	return settings
-}
-
-func root() string {
-	return GOPATH() + GetSettings().GobyPath
-}
-
-func dir() string {
-	return root() + "/vm"
-}
-
 func main() {
-	classes := parser.ClassesFromDir(dir())
-	parser.Write("./doc.json", classes)
+	classes := ClassesFromDir(dir())
+	Write("./doc.json", classes)
 
 	os.RemoveAll("./docs")
 	os.Mkdir("./docs", 0777)
 	os.Mkdir("./docs/classes", 0777)
 
 	settings := GetSettings()
-	data := view.ReadFrom("./doc.json", settings.Repo, settings.Commit)
-	view.GenerateHTML(data)
+	data := ReadFrom("./doc.json", settings.Repo, settings.Commit)
+	GenerateHTML(data)
 }

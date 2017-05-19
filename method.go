@@ -1,4 +1,4 @@
-package view
+package main
 
 import (
 	"html/template"
@@ -7,7 +7,7 @@ import (
 type Methods []Method
 
 type Method struct {
-	FnName  string `json:"name"`
-	FnLine  int    `json:"line"`
+	FnName  string        `json:"name"`
+	FnLine  int           `json:"line"`
 	Comment template.HTML `json:"desc"`
 }

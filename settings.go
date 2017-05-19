@@ -1,10 +1,16 @@
-package view
+package main
 
 import (
 	"encoding/json"
 	"io/ioutil"
 	"strings"
 )
+
+type Settings struct {
+	GobyPath string `yaml:"gobypath"`
+	Repo     string `yaml:"repo"`
+	Commit   string `yaml:"commit"`
+}
 
 func ReadFrom(filepath string, repo string, commit string) Classes {
 	bytes, err := ioutil.ReadFile(filepath)

@@ -1,10 +1,12 @@
-package parser
+package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"html/template"
 	"io/ioutil"
 	"strings"
 )
@@ -75,7 +77,7 @@ func classFromFile(filepath string) Class {
 		return class
 	}
 	// Retrieve class comments
-	class.Comment = allComments.findCommentFor(class.Line)
+	class.Comment = template.HTML(allComments.findCommentFor(class.Line))
 
 	// Return class if there is not built-in methods
 	if methods == nil {
@@ -93,13 +95,11 @@ func classFromFile(filepath string) Class {
 			thisExpr := attr.(*ast.KeyValueExpr)
 			name := thisExpr.Key.(*ast.Ident).Name
 			if name == "Name" {
-				// method.Name = thisExpr
 				method.FnName = strings.Replace(thisExpr.Value.(*ast.BasicLit).Value, "\"", "", -1)
 				method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
 			}
 			if name == "Fn" {
-				// method.Fn = thisExpr
-				method.Comment = allComments.findCommentFor(method.FnLine)
+				method.Comment = template.HTML(allComments.findCommentFor(method.FnLine))
 			}
 		}
 		allMethods = append(allMethods, method)
@@ -107,4 +107,16 @@ func classFromFile(filepath string) Class {
 
 	class.Methods = allMethods
 	return class
+}
+
+func Write(filepath string, classes []Class) {
+	b, err := json.Marshal(classes)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Generated:", filepath)
+	err = ioutil.WriteFile(filepath, b, 0644)
+	if err != nil {
+		panic(err)
+	}
 }

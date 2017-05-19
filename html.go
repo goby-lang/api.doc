@@ -1,11 +1,11 @@
-package view
+package main
 
 import (
 	"fmt"
+	"github.com/russross/blackfriday"
 	"html/template"
 	"io/ioutil"
 	"os"
-	"github.com/russross/blackfriday"
 	"strings"
 )
 
@@ -13,10 +13,10 @@ func generateIndexFile(classes Classes) {
 	indexFile, err := os.OpenFile("./docs/index.html", os.O_CREATE|os.O_WRONLY, 0777)
 	panicIf(err)
 	indexTemplate, err := template.New("index").ParseFiles(
-		"./view/templates/html/index.html",
-		"./view/templates/html/layout.html",
-		"./view/templates/html/sidebar.html",
-		"./view/templates/html/navbar.html",
+		"./templates/html/index.html",
+		"./templates/html/layout.html",
+		"./templates/html/sidebar.html",
+		"./templates/html/navbar.html",
 	)
 	panicIf(err)
 	variables := map[string]interface{}{
@@ -33,10 +33,10 @@ func generateClassFile(classes Classes, class Class) {
 	classFile, err := os.OpenFile("./docs/"+class.Filename+".html", os.O_CREATE|os.O_WRONLY, 0777)
 	panicIf(err)
 	classTemplate, err := template.New(class.Filename).ParseFiles(
-		"./view/templates/html/class.html",
-		"./view/templates/html/layout.html",
-		"./view/templates/html/sidebar.html",
-		"./view/templates/html/navbar.html",
+		"./templates/html/class.html",
+		"./templates/html/layout.html",
+		"./templates/html/sidebar.html",
+		"./templates/html/navbar.html",
 	)
 	panicIf(err)
 	classComment := blackfriday.MarkdownCommon([]byte(class.Comment))
@@ -55,7 +55,7 @@ func generateClassFile(classes Classes, class Class) {
 }
 
 func copyAsset(filename string) {
-	bytes, err := ioutil.ReadFile("./view/assets/" + filename)
+	bytes, err := ioutil.ReadFile("./assets/" + filename)
 	panicIf(err)
 	_, err = os.OpenFile("./docs/assets/"+filename, os.O_CREATE|os.O_WRONLY, 0644)
 	panicIf(err)
