@@ -10,8 +10,8 @@
     <hr />
     {{ range .class.InstanceMethods }}
       <h4 class="method">
-        <span class="prefix">#</span>
-        <span class="title">{{.FnName}}</span>
+        <a class="prefix" href="#{{.FnName}}">#</a>
+        <span class="title" id="{{.FnName}}">{{.FnName}}</span>
       </h4>
       <div class="method-comment">{{.Comment}}</div>
       <p class="source">

@@ -82,6 +82,8 @@ body .container .sidebar ul a {
 .method .prefix {
   font-size: 20px;
   color: #949494;
+  line-height: 20px;
+  text-decoration: none;
 }
 
 .class_name {
