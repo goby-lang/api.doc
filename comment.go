@@ -31,7 +31,7 @@ func (a *AllComments) findCommentFor(i int) string {
 
 	if found {
 		for _, comment := range comments.List {
-			comment.Text = strings.Replace(comment.Text, "// ", "", 1)
+			comment.Text = strings.Replace(comment.Text, "//", "", 1)
 			result = append(result, comment.Text)
 		}
 	}
