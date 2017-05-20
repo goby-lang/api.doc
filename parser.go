@@ -8,6 +8,7 @@ import (
 	"go/token"
 	"html/template"
 	"io/ioutil"
+	"regexp"
 	"strings"
 )
 
@@ -94,7 +95,10 @@ func classFromFile(filepath string) Class {
 				method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
 			}
 			if name == "Fn" {
-				method.Comment = template.HTML(allComments.findCommentFor(method.FnLine))
+				comments := allComments.findCommentFor(method.FnLine)
+				method.Params = ExtractParams(comments)
+				method.Returns = ExtractReturns(comments)
+				method.Comment = template.HTML(comments)
 			}
 		}
 		allMethods = append(allMethods, method)
@@ -114,4 +118,73 @@ func Write(filepath string, classes []Class) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func ExtractParams(comments string) []Param {
+	params := []Param{}
+	lines := strings.Split(comments, "\n")
+	for _, line := range lines {
+		matched, err := regexp.MatchString("^ @param", line)
+		if err != nil {
+			panic(err)
+		}
+		if matched {
+			fmt.Println("MATCHED!!!")
+			fmt.Println(line)
+			param := Param{}
+			words := strings.Split(line, " ")
+			words = words[1:len(words)]
+			fmt.Println(words)
+			if len(words) > 1 {
+				fmt.Println(words[1])
+				param.Name = words[1]
+			}
+			if len(words) > 2 {
+				fmt.Println(words[2])
+				class := words[2]
+				class = strings.Replace(class, "[", "", 1)
+				class = strings.Replace(class, "]", "", 1)
+				param.Class = class
+			}
+			if len(words) > 3 {
+				fmt.Println(words[3:len(words)])
+				theRest := strings.Join(words[3:len(words)], " ")
+				param.Description = template.HTML(theRest)
+			}
+			if param.Name != "" {
+				params = append(params, param)
+			}
+		}
+	}
+	return params
+}
+
+func ExtractReturns(comments string) []Return {
+	returns := []Return{}
+	lines := strings.Split(comments, "\n")
+	for _, line := range lines {
+		matched, err := regexp.MatchString("^ @return", line)
+		if err != nil {
+			panic(err)
+		}
+		if matched {
+			r := Return{}
+			words := strings.Split(line, " ")
+			words = words[1:len(words)]
+			if len(words) > 1 {
+				class := words[1]
+				class = strings.Replace(class, "[", "", 1)
+				class = strings.Replace(class, "]", "", 1)
+				r.Class = class
+			}
+			if len(words) > 2 {
+				theRest := strings.Join(words[3:len(words)], " ")
+				r.Description = template.HTML(theRest)
+			}
+			if r.Class != "" {
+				returns = append(returns, r)
+			}
+		}
+	}
+	return returns
 }

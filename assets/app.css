@@ -115,3 +115,10 @@ code {
   line-height: 20px;
   padding: 2 6 3 6;
 }
+
+.note {
+  color: #b3b3b3;
+  font-style: italic;
+  font-size: 12px;
+  padding-left: 5px;
+}
