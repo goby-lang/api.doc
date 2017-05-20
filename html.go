@@ -9,6 +9,12 @@ import (
 	"strings"
 )
 
+var fns = template.FuncMap{
+	"last": func(index int, length int) bool {
+		return index == length-1
+	},
+}
+
 func generateIndexFile(classes Classes) {
 	indexFile, err := os.OpenFile("./docs/index.html", os.O_CREATE|os.O_WRONLY, 0777)
 	panicIf(err)
@@ -32,7 +38,7 @@ func generateIndexFile(classes Classes) {
 func generateClassFile(classes Classes, class Class) {
 	classFile, err := os.OpenFile("./docs/"+class.Filename+".html", os.O_CREATE|os.O_WRONLY, 0777)
 	panicIf(err)
-	classTemplate, err := template.New(class.Filename).ParseFiles(
+	classTemplate, err := template.New(class.Filename).Funcs(fns).ParseFiles(
 		"./templates/html/class.html",
 		"./templates/html/layout.html",
 		"./templates/html/sidebar.html",

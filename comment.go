@@ -58,9 +58,15 @@ func (a *AllComments) findCommentFor(i int) CommentStruct {
 		for _, comment := range comments.List {
 			comment.Text = strings.Replace(comment.Text, "//", "", 1)
 			if IsParamSpec(comment.Text) {
-				methodComments.Params = append(methodComments.Params, ExtractParam(comment.Text))
+				param := ExtractParam(comment.Text)
+				if param.Name != "" && param.Class != "" {
+					methodComments.Params = append(methodComments.Params, param)
+				}
 			} else if IsReturnSpec(comment.Text) {
-				methodComments.Returns = append(methodComments.Returns, ExtractReturn(comment.Text))
+				r := ExtractReturn(comment.Text)
+				if r.Class != "" {
+					methodComments.Returns = append(methodComments.Returns, r)
+				}
 			} else {
 				result = append(result, comment.Text)
 			}
@@ -75,20 +81,16 @@ func ExtractParam(line string) Param {
 	param := Param{}
 	words := strings.Split(line, " ")
 	words = words[1:len(words)]
-	// fmt.Println(words)
 	if len(words) > 1 {
-		// fmt.Println(words[1])
 		param.Name = words[1]
 	}
 	if len(words) > 2 {
-		// fmt.Println(words[2])
 		class := words[2]
 		class = strings.Replace(class, "[", "", 1)
 		class = strings.Replace(class, "]", "", 1)
 		param.Class = class
 	}
 	if len(words) > 3 {
-		// fmt.Println(words[3:len(words)])
 		theRest := strings.Join(words[3:len(words)], " ")
 		param.Description = template.HTML(theRest)
 	}

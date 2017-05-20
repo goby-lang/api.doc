@@ -122,3 +122,7 @@ code {
   font-size: 12px;
   padding-left: 5px;
 }
+
+.return-separator {
+  padding-left: 10px;
+}

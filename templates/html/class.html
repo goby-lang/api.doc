@@ -11,7 +11,32 @@
     {{ range .class.InstanceMethods }}
       <h4 class="method">
         <a class="prefix" href="#{{.FnName}}">#</a>
-        <span class="title" id="{{.FnName}}">{{.FnName}}</span>
+        <p class="title" id="{{.FnName}}">
+          <span>{{.FnName}}</span>
+          {{ $length := len .Params }} {{ if gt $length 0 }}
+            <span>(</span>
+              {{ range $i, $e := .Params }}
+                {{ if last $i $length }}
+                  <span>{{.Name}}</span>
+                {{ else }}
+                  <span>{{.Name}}, </span>
+                {{ end }}
+              {{ end }}
+            <span>)</span>
+          {{ end }}
+          {{ $length := len .Returns }} {{ if gt $length 0 }}
+            <span class="return-separator"> => </span>
+          {{ end }}
+          {{ $length := len .Returns }} {{ if gt $length 0 }}
+            {{ range $i, $e := .Returns }}
+              {{ if last $i $length }}
+                <span>{{.Class}}</span>
+              {{ else }}
+                <span>{{.Class}}, </span>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </p>
       </h4>
       <div class="method-comment">
         <div>
