@@ -3,6 +3,8 @@ package main
 import (
 	"go/ast"
 	"go/token"
+	"html/template"
+	"regexp"
 	"strings"
 )
 
@@ -11,7 +13,30 @@ type AllComments struct {
 	Comments []*ast.CommentGroup
 }
 
-func (a *AllComments) findCommentFor(i int) string {
+type CommentStruct struct {
+	Description string
+	Params      []Param
+	Returns     []Return
+}
+
+func IsParamSpec(line string) bool {
+	matched, err := regexp.MatchString("^ @param", line)
+	if err != nil {
+		panic(err)
+	}
+	return matched
+}
+
+func IsReturnSpec(line string) bool {
+	matched, err := regexp.MatchString("^ @return", line)
+	if err != nil {
+		panic(err)
+	}
+	return matched
+}
+
+func (a *AllComments) findCommentFor(i int) CommentStruct {
+	var methodComments CommentStruct
 	var comments *ast.CommentGroup
 	var result []string
 	found := false
@@ -32,9 +57,57 @@ func (a *AllComments) findCommentFor(i int) string {
 	if found {
 		for _, comment := range comments.List {
 			comment.Text = strings.Replace(comment.Text, "//", "", 1)
-			result = append(result, comment.Text)
+			if IsParamSpec(comment.Text) {
+				methodComments.Params = append(methodComments.Params, ExtractParam(comment.Text))
+			} else if IsReturnSpec(comment.Text) {
+				methodComments.Returns = append(methodComments.Returns, ExtractReturn(comment.Text))
+			} else {
+				result = append(result, comment.Text)
+			}
 		}
 	}
+	methodComments.Description = strings.Join(result, "\n")
 
-	return strings.Join(result, "\n")
+	return methodComments
+}
+
+func ExtractParam(line string) Param {
+	param := Param{}
+	words := strings.Split(line, " ")
+	words = words[1:len(words)]
+	// fmt.Println(words)
+	if len(words) > 1 {
+		// fmt.Println(words[1])
+		param.Name = words[1]
+	}
+	if len(words) > 2 {
+		// fmt.Println(words[2])
+		class := words[2]
+		class = strings.Replace(class, "[", "", 1)
+		class = strings.Replace(class, "]", "", 1)
+		param.Class = class
+	}
+	if len(words) > 3 {
+		// fmt.Println(words[3:len(words)])
+		theRest := strings.Join(words[3:len(words)], " ")
+		param.Description = template.HTML(theRest)
+	}
+	return param
+}
+
+func ExtractReturn(line string) Return {
+	r := Return{}
+	words := strings.Split(line, " ")
+	words = words[1:len(words)]
+	if len(words) > 1 {
+		class := words[1]
+		class = strings.Replace(class, "[", "", 1)
+		class = strings.Replace(class, "]", "", 1)
+		r.Class = class
+	}
+	if len(words) > 2 {
+		theRest := strings.Join(words[3:len(words)], " ")
+		r.Description = template.HTML(theRest)
+	}
+	return r
 }
