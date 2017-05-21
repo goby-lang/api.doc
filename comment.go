@@ -59,7 +59,7 @@ func (a *AllComments) findCommentFor(i int) CommentStruct {
 			comment.Text = strings.Replace(comment.Text, "//", "", 1)
 			if IsParamSpec(comment.Text) {
 				param := ExtractParam(comment.Text)
-				if param.Name != "" && param.Class != "" {
+				if param.Name != "" {
 					methodComments.Params = append(methodComments.Params, param)
 				}
 			} else if IsReturnSpec(comment.Text) {

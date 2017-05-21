@@ -48,7 +48,13 @@
             {{ range .Params }}
               <ul>
                 <li>
-                  <span>({{.Class}}) {{.Name}}: </span>
+                  <span>{{.Name}}</span>
+                  <span>
+                    {{ if ne .Class "" }}
+                      ({{.Class}})
+                    {{ end }}
+                    :
+                  </span> 
                   {{ if eq .Description "" }}
                     <span class="note">No Description</span>
                   {{ else }}
@@ -63,7 +69,7 @@
             {{ range .Returns }}
               <ul>
                 <li>
-                  <span>({{.Class}}): </span>
+                  <span>({{.Class}}) : </span>
                   {{ if eq .Description "" }}
                     <span class="note">No Description</span>
                   {{ else }}
