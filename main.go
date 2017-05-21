@@ -1,13 +1,12 @@
 package main
 
 import (
-	// "./parser"
-	// "./view"
 	"os"
 )
 
 func main() {
 	classes := ClassesFromDir(dir())
+	classes = InsertClassLinks(classes)
 	Write("./doc.json", classes)
 
 	os.RemoveAll("./docs")

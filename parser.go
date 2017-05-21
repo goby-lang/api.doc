@@ -24,6 +24,7 @@ func ClassesFromDir(dir string) []Class {
 		filename := dir + "/" + file.Name()
 		class := classFromFile(filename)
 		if class.Line != 0 {
+			class.Filename = strings.Replace(class.Name, ".go", "", 1)
 			classes = append(classes, class)
 		}
 	}
@@ -118,4 +119,38 @@ func Write(filepath string, classes []Class) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func InsertClassLinks(classes Classes) Classes {
+	var returned_classes Classes
+	puncs := []string{" ", ",", ".", ";", "\n"}
+	// loop classes
+	for _, class := range classes {
+		text := string(class.Comment)
+		// insert link to class comment
+		for _, each_class := range classes {
+			each_class_link := " [" + each_class.Name + "](" + each_class.Filename + ".html) "
+			for _, sym := range puncs {
+				text = strings.Replace(text, " "+each_class.Name+sym, each_class_link, -1)
+			}
+		}
+
+		// loop methods in a class
+		for i, method := range class.InstanceMethods {
+			text := string(method.Comment)
+			// insert link to method comment
+			for _, each_class := range classes {
+				each_class_link := " [" + each_class.Name + "](" + each_class.Filename + ".html) "
+				for _, sym := range puncs {
+					text = strings.Replace(text, " "+each_class.Name+sym, each_class_link, -1)
+				}
+			}
+			class.InstanceMethods[i].Comment = template.HTML(text)
+		}
+
+		class.Comment = template.HTML(text)
+		returned_classes = append(returned_classes, class)
+	}
+
+	return returned_classes
 }

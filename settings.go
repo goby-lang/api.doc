@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"io/ioutil"
-	"strings"
 )
 
 type Settings struct {
@@ -24,8 +23,6 @@ func ReadFrom(filepath string, repo string, commit string) Classes {
 		panic(err)
 	}
 	for i, class := range classes {
-		name := strings.ToLower(class.Name)
-		class.Filename = name
 		class.Repo = repo
 		class.Commit = commit
 		classes[i] = class
