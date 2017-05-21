@@ -121,18 +121,30 @@ func Write(filepath string, classes []Class) {
 	}
 }
 
+func InsertLinkToComment(text string, class_name string) string {
+	t := text
+	puncs := []string{" ", ",", ".", ";", "\n"}
+	class_link := " [" + class_name + "](" + class_name + ".html) "
+	split_t := strings.Split(t, "```")
+	for i, _ := range split_t {
+		if i%2 == 1 {
+			continue
+		}
+		for _, sym := range puncs {
+			split_t[i] = strings.Replace(split_t[i], " "+class_name+sym, class_link, -1)
+		}
+	}
+	return strings.Join(split_t, "```")
+}
+
 func InsertClassLinks(classes Classes) Classes {
 	var returned_classes Classes
-	puncs := []string{" ", ",", ".", ";", "\n"}
 	// loop classes
 	for _, class := range classes {
 		text := string(class.Comment)
 		// insert link to class comment
 		for _, each_class := range classes {
-			each_class_link := " [" + each_class.Name + "](" + each_class.Filename + ".html) "
-			for _, sym := range puncs {
-				text = strings.Replace(text, " "+each_class.Name+sym, each_class_link, -1)
-			}
+			text = InsertLinkToComment(text, each_class.Name)
 		}
 
 		// loop methods in a class
@@ -140,10 +152,7 @@ func InsertClassLinks(classes Classes) Classes {
 			text := string(method.Comment)
 			// insert link to method comment
 			for _, each_class := range classes {
-				each_class_link := " [" + each_class.Name + "](" + each_class.Filename + ".html) "
-				for _, sym := range puncs {
-					text = strings.Replace(text, " "+each_class.Name+sym, each_class_link, -1)
-				}
+				text = InsertLinkToComment(text, each_class.Name)
 			}
 			class.InstanceMethods[i].Comment = template.HTML(text)
 		}
