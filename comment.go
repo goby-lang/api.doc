@@ -88,7 +88,7 @@ func ExtractParam(line string) Param {
 		class := words[2]
 		class = strings.Replace(class, "[", "", 1)
 		class = strings.Replace(class, "]", "", 1)
-		param.Class = class
+		param.Class = template.HTML(class)
 	}
 	if len(words) > 3 {
 		theRest := strings.Join(words[3:len(words)], " ")
@@ -105,7 +105,7 @@ func ExtractReturn(line string) Return {
 		class := words[1]
 		class = strings.Replace(class, "[", "", 1)
 		class = strings.Replace(class, "]", "", 1)
-		r.Class = class
+		r.Class = template.HTML(class)
 	}
 	if len(words) > 2 {
 		theRest := strings.Join(words[3:len(words)], " ")

@@ -16,11 +16,11 @@ type Method struct {
 
 type Param struct {
 	Name        string        `json:"name"`
-	Class       string        `json:"class"`
+	Class       template.HTML `json:"class"`
 	Description template.HTML `json:"description"`
 }
 
 type Return struct {
-	Class       string        `json:"string"`
+	Class       template.HTML `json:"string"`
 	Description template.HTML `json:"description"`
 }

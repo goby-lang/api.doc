@@ -130,11 +130,16 @@ func InsertLinkToComment(text string, class_name string) string {
 		if i%2 == 1 {
 			continue
 		}
-		for _, sym := range puncs {
-			split_t[i] = strings.Replace(split_t[i], " "+class_name+sym, class_link, -1)
+		for _, punc := range puncs {
+			split_t[i] = strings.Replace(split_t[i], " "+class_name+punc, class_link, -1)
 		}
 	}
 	return strings.Join(split_t, "```")
+}
+
+func DirectInsertLinkToComment(text string, class_name string) string {
+	class_link := " [" + class_name + "](" + class_name + ".html) "
+	return strings.Replace(text, class_name, class_link, -1)
 }
 
 func InsertClassLinks(classes Classes) Classes {
@@ -155,6 +160,33 @@ func InsertClassLinks(classes Classes) Classes {
 				text = InsertLinkToComment(text, each_class.Name)
 			}
 			class.InstanceMethods[i].Comment = template.HTML(text)
+
+			// insert link to params
+			for j, param := range method.Params {
+				c := string(param.Class)
+				d := string(param.Description)
+				for _, each_class := range classes {
+					c = DirectInsertLinkToComment(c, each_class.Name)
+					d = DirectInsertLinkToComment(d, each_class.Name)
+				}
+				param.Class = template.HTML(c)
+				param.Description = template.HTML(d)
+				class.InstanceMethods[i].Params[j] = param
+			}
+
+			// insert link to returns
+			for j, r := range method.Returns {
+				c := string(r.Class)
+				d := string(r.Description)
+				for _, each_class := range classes {
+					c = DirectInsertLinkToComment(c, each_class.Name)
+					d = DirectInsertLinkToComment(d, each_class.Name)
+				}
+				r.Class = template.HTML(c)
+				r.Description = template.HTML(d)
+				class.InstanceMethods[i].Returns[j] = r
+			}
+
 		}
 
 		class.Comment = template.HTML(text)

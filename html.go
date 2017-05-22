@@ -50,6 +50,24 @@ func generateClassFile(classes Classes, class Class) {
 	for i := 0; i < len(class.InstanceMethods); i++ {
 		methodComment := blackfriday.MarkdownCommon([]byte(class.InstanceMethods[i].Comment))
 		class.InstanceMethods[i].Comment = template.HTML(methodComment)
+		for j := 0; j < len(class.InstanceMethods[i].Params); j++ {
+			p := class.InstanceMethods[i].Params[j]
+			paramClass := blackfriday.MarkdownCommon([]byte(p.Class))
+			paramDesc := blackfriday.MarkdownCommon([]byte(p.Description))
+			paramClass = stripTag(paramClass)
+			paramDesc = stripTag(paramDesc)
+			class.InstanceMethods[i].Params[j].Class = template.HTML(paramClass)
+			class.InstanceMethods[i].Params[j].Description = template.HTML(paramDesc)
+		}
+		for j := 0; j < len(class.InstanceMethods[i].Returns); j++ {
+			r := class.InstanceMethods[i].Returns[j]
+			returnClass := blackfriday.MarkdownCommon([]byte(r.Class))
+			returnDesc := blackfriday.MarkdownCommon([]byte(r.Description))
+			returnClass = stripTag(returnClass)
+			returnDesc = stripTag(returnDesc)
+			class.InstanceMethods[i].Returns[j].Class = template.HTML(returnClass)
+			class.InstanceMethods[i].Returns[j].Description = template.HTML(returnDesc)
+		}
 	}
 	variables := map[string]interface{}{
 		"classes": classes,
@@ -87,4 +105,12 @@ func GenerateHTML(classes Classes) {
 	}
 	copyAsset("app.css")
 	copyAsset("app.js")
+}
+
+func stripTag(bytes []byte) []byte {
+	t := strings.Replace(string(bytes), "<p>", "", 1)
+	t = strings.Replace(t, "</p>", "", 1)
+	t = strings.Replace(t, "\n", "", 1)
+	t = strings.Replace(t, "<a ", "<a class=\"class-link\"", 1)
+	return []byte(t)
 }

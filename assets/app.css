@@ -126,3 +126,8 @@ code {
 .return-separator {
   padding-left: 10px;
 }
+
+.class-link {
+  font-style: italic;
+  text-decoration: none;
+}
