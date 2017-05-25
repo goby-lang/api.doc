@@ -24,7 +24,7 @@ func ClassesFromDir(dir string) []Class {
 		filename := dir + "/" + file.Name()
 		class := classFromFile(filename)
 		if class.Line != 0 {
-			class.Filename = strings.Replace(class.Name, ".go", "", 1)
+			class.Filename = strings.Replace(file.Name(), ".go", "", 1)
 			classes = append(classes, class)
 		}
 	}
@@ -32,7 +32,6 @@ func ClassesFromDir(dir string) []Class {
 }
 
 func classFromFile(filepath string) Class {
-	allMethods := []Method{}
 	class := Class{}
 	class.SetClassname(filepath)
 
@@ -49,7 +48,8 @@ func classFromFile(filepath string) Class {
 	// ast.Print(fset, f.Comments)
 
 	// Find class & methods
-	var methods *ast.ValueSpec
+	var classMethods *ast.ValueSpec
+	var instanceMethods *ast.ValueSpec
 	// Loop through declarations
 	for _, decl := range f.Decls {
 		// Continue only for general declarations
@@ -60,9 +60,13 @@ func classFromFile(filepath string) Class {
 					node := tSpec.Name
 					class.Line = fset.Position(node.NamePos).Line
 				}
-				// Assign methods if found
+				// Assign class methods if found
+				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchClassMethods(vSpec.Names[0].Name) {
+					classMethods = vSpec
+				}
+				// Assign instance methods if found
 				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchInstanceMethods(vSpec.Names[0].Name) {
-					methods = vSpec
+					instanceMethods = vSpec
 				}
 			}
 		}
@@ -76,13 +80,43 @@ func classFromFile(filepath string) Class {
 	comments := allComments.findCommentFor(class.Line)
 	class.Comment = template.HTML(comments.Description)
 
-	// Return class if there is not built-in methods
-	if methods == nil {
-		return class
+	// Loop through instance methods to find each method
+	if classMethods != nil {
+		class.ClassMethods = retrieveMethodsFromNode(fset, classMethods, allComments)
 	}
+	if instanceMethods != nil {
+		class.InstanceMethods = retrieveMethodsFromNode(fset, instanceMethods, allComments)
+	}
+	// allExpr := instanceMethods.Values[0].(*ast.CompositeLit).Elts
+	// var attrs []ast.Expr
+	// for _, expr := range allExpr {
+	// 	attrs = expr.(*ast.CompositeLit).Elts
+	// 	method := Method{}
+	// 	// Attributes should only contain "Name" & "Fn" for now
+	// 	for _, attr := range attrs {
+	// 		thisExpr := attr.(*ast.KeyValueExpr)
+	// 		name := thisExpr.Key.(*ast.Ident).Name
+	// 		if name == "Name" {
+	// 			method.FnName = strings.Replace(thisExpr.Value.(*ast.BasicLit).Value, "\"", "", -1)
+	// 			method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
+	// 		}
+	// 		if name == "Fn" {
+	// 			methodComments := allComments.findCommentFor(method.FnLine)
+	// 			method.Params = methodComments.Params
+	// 			method.Returns = methodComments.Returns
+	// 			method.Comment = template.HTML(methodComments.Description)
+	// 		}
+	// 	}
+	// 	allInstanceMethods = append(allInstanceMethods, method)
+	// }
+	//
+	// class.InstanceMethods = allInstanceMethods
+	return class
+}
 
-	// Loop through methods to find each method
-	allExpr := methods.Values[0].(*ast.CompositeLit).Elts
+func retrieveMethodsFromNode(fset *token.FileSet, valueSpec *ast.ValueSpec, allComments AllComments) []Method {
+	methods := []Method{}
+	allExpr := valueSpec.Values[0].(*ast.CompositeLit).Elts
 	var attrs []ast.Expr
 	for _, expr := range allExpr {
 		attrs = expr.(*ast.CompositeLit).Elts
@@ -102,11 +136,9 @@ func classFromFile(filepath string) Class {
 				method.Comment = template.HTML(methodComments.Description)
 			}
 		}
-		allMethods = append(allMethods, method)
+		methods = append(methods, method)
 	}
-
-	class.InstanceMethods = allMethods
-	return class
+	return methods
 }
 
 func Write(filepath string, classes []Class) {

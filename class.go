@@ -23,11 +23,11 @@ func (c *Class) MatchName(str string) bool {
 }
 
 func (c *Class) MatchInstanceMethods(str string) bool {
-	return (strings.Contains(str, "builtin") || strings.Contains(str, "Builtin")) && strings.Contains(str, "Methods")
+	return (strings.Contains(str, "builtin") || strings.Contains(str, "Builtin")) && strings.Contains(str, "Instance") && strings.Contains(str, "Methods")
 }
 
 func (c *Class) MatchClassMethods(str string) bool {
-	return strings.Contains(str, "builtin") && strings.Contains(str, "Methods")
+	return (strings.Contains(str, "builtin") || strings.Contains(str, "Builtin")) && strings.Contains(str, "Class") && strings.Contains(str, "Methods")
 }
 
 func (c *Class) SetClassname(filepath string) {

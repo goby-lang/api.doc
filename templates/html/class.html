@@ -6,6 +6,91 @@
     <hr />
     <div>{{.class.Comment}}</div>
 
+    <h2>Class Methods</h2>
+    <hr />
+    {{ range .class.ClassMethods }}
+      <h4 class="method">
+        <a class="prefix" href="#{{.FnName}}">#</a>
+        <p class="title" id="{{.FnName}}">
+          <span>{{.FnName}}</span>
+          {{ $length := len .Params }} {{ if gt $length 0 }}
+            <span>(</span>
+              {{ range $i, $e := .Params }}
+                {{ if last $i $length }}
+                  <span>{{.Name}}</span>
+                {{ else }}
+                  <span>{{.Name}}, </span>
+                {{ end }}
+              {{ end }}
+            <span>)</span>
+          {{ end }}
+          {{ $length := len .Returns }} {{ if gt $length 0 }}
+            <span class="return-separator"> => </span>
+          {{ end }}
+          {{ $length := len .Returns }} {{ if gt $length 0 }}
+            {{ range $i, $e := .Returns }}
+              {{ if last $i $length }}
+                <span>{{.Class}}</span>
+              {{ else }}
+                <span>{{.Class}}, </span>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          {{.Comment}}
+        </div>
+        <div>
+          {{ $length := len .Params }} {{ if gt $length 0 }}
+            <h4>Parameters</h4>
+            {{ range .Params }}
+              <ul>
+                <li>
+                  <span>{{.Name}}</span>
+                  <span>
+                    {{ if ne .Class "" }}
+                      ({{.Class}})
+                    {{ end }}
+                    :
+                  </span> 
+                  {{ if eq .Description "" }}
+                    <span class="note">No Description</span>
+                  {{ else }}
+                    <span>{{.Description}}</span>
+                  {{ end }}
+                </li>
+              </ul>
+            {{ end }}
+          {{ end }}
+          {{ $length := len .Returns }} {{ if gt $length 0 }}
+            <h4>Returns</h4>
+            {{ range .Returns }}
+              <ul>
+                <li>
+                  <span>({{.Class}}) : </span>
+                  {{ if eq .Description "" }}
+                    <span class="note">No Description</span>
+                  {{ else }}
+                    <span>{{.Description}}</span></li>
+                  {{ end }}
+                </li>
+              </ul>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <p class="source">
+        (<a href="{{$.class.Repo}}/tree/{{$.class.Commit}}/vm/{{$.class.Filename}}.go#L{{.FnLine}}" target="_blank">
+          source
+        </a>)
+      </p>
+    {{ end }}
+
+
+
+
     <h2>Instance Methods</h2>
     <hr />
     {{ range .class.InstanceMethods }}
