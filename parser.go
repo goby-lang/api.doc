@@ -23,7 +23,7 @@ func ClassesFromDir(dir string) []Class {
 		}
 		filename := dir + "/" + file.Name()
 		class := classFromFile(filename)
-		if class.Line != 0 {
+		if class.Line != 0 || class.ClassMethods != nil || class.InstanceMethods != nil {
 			class.Filename = strings.Replace(file.Name(), ".go", "", 1)
 			classes = append(classes, class)
 		}
@@ -73,9 +73,10 @@ func classFromFile(filepath string) Class {
 	}
 
 	// Return blank class if class definition is not found
-	if class.Line == 0 {
-		return class
-	}
+	// if class.Line == 0 {
+	// 	return class
+	// }
+
 	// Retrieve class comments
 	comments := allComments.findCommentFor(class.Line)
 	class.Comment = template.HTML(comments.Description)
