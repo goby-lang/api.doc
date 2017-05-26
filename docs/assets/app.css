@@ -82,6 +82,8 @@ body .container .sidebar ul a {
 .method .prefix {
   font-size: 20px;
   color: #949494;
+  line-height: 20px;
+  text-decoration: none;
 }
 
 .class_name {
@@ -112,4 +114,23 @@ code {
   border-radius: 2px;
   line-height: 20px;
   padding: 2 6 3 6;
+}
+
+.note {
+  color: #b3b3b3;
+  font-style: italic;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.return-separator {
+  padding-left: 10px;
+}
+
+a, .class-link {
+  text-decoration: none;
+}
+
+.bold {
+  font-weight: bold;
 }

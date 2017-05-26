@@ -30,7 +30,7 @@
           </li>
         </a>
       
-        <a href="baseobject.html">
+        <a href="base_object.html">
           <li class="">
             BaseObject
           </li>
@@ -51,6 +51,12 @@
         <a href="error.html">
           <li class="">
             Error
+          </li>
+        </a>
+      
+        <a href="file.html">
+          <li class="">
+            File
           </li>
         </a>
       
@@ -103,78 +109,150 @@
  It includes <code>true</code> and <code>FALSE</code> which represents logically true and false value.</p>
 </div>
 
+    <h2>Class Methods</h2>
+    <hr />
+    
+
+
+
+
     <h2>Instance Methods</h2>
     <hr />
     
       <h4 class="method">
-        <span class="prefix">#</span>
-        <span class="title">==</span>
+        <a class="prefix" href="#%3d%3d">#</a>
+        <p class="title" id="==">
+          <span>==</span>
+           
+           
+           
+        </p>
       </h4>
-      <div class="method-comment"><p>Returns true if the receiver equals to the argument.</p>
-</div>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if the receiver equals to the argument.</p>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/ebdfd578f7f2d206446dd7e0d950d39e59260701/vm/boolean.go#L50" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/boolean.go#L50" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <span class="prefix">#</span>
-        <span class="title">!=</span>
+        <a class="prefix" href="#%21%3d">#</a>
+        <p class="title" id="!=">
+          <span>!=</span>
+           
+           
+           
+        </p>
       </h4>
-      <div class="method-comment"><p>Returns true if the receiver is not equals to the argument.</p>
-</div>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if the receiver is not equals to the argument.</p>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/ebdfd578f7f2d206446dd7e0d950d39e59260701/vm/boolean.go#L68" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/boolean.go#L68" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <span class="prefix">#</span>
-        <span class="title">!</span>
+        <a class="prefix" href="#%21">#</a>
+        <p class="title" id="!">
+          <span>!</span>
+           
+           
+           
+        </p>
       </h4>
-      <div class="method-comment"><p>Reverse the receiver.</p>
+      <div class="method-comment">
+        <div>
+          <p>Reverse the receiver.</p>
 
 <pre><code class="language-ruby"> !true  # =&gt; false
  !false # =&gt; true
 </code></pre>
-</div>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/ebdfd578f7f2d206446dd7e0d950d39e59260701/vm/boolean.go#L91" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/boolean.go#L91" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <span class="prefix">#</span>
-        <span class="title">&amp;&amp;</span>
+        <a class="prefix" href="#%26%26">#</a>
+        <p class="title" id="&amp;&amp;">
+          <span>&amp;&amp;</span>
+           
+           
+           
+        </p>
       </h4>
-      <div class="method-comment"><p>Returns true if both the receiver and the argument are true.</p>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if both the receiver and the argument are true.</p>
 
 <pre><code class="language-ruby"> 3 &gt; 2 &amp;&amp; 5 &gt; 3  # =&gt; true
  3 &gt; 2 &amp;&amp; 5 &gt; 10 # =&gt; false
 </code></pre>
-</div>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/ebdfd578f7f2d206446dd7e0d950d39e59260701/vm/boolean.go#L112" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/boolean.go#L112" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <span class="prefix">#</span>
-        <span class="title">||</span>
+        <a class="prefix" href="#%7c%7c">#</a>
+        <p class="title" id="||">
+          <span>||</span>
+           
+           
+           
+        </p>
       </h4>
-      <div class="method-comment"><p>Returns true either if the receiver or argument is true.</p>
+      <div class="method-comment">
+        <div>
+          <p>Returns true either if the receiver or argument is true.</p>
 
 <pre><code class="language-ruby"> 3 &gt; 2 || 5 &gt; 3  # =&gt; true
  3 &gt; 2 || 5 &gt; 10 # =&gt; true
  2 &gt; 3 || 5 &gt; 10 # =&gt; false
 </code></pre>
-</div>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/ebdfd578f7f2d206446dd7e0d950d39e59260701/vm/boolean.go#L141" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/boolean.go#L141" target="_blank">
           source
         </a>)
       </p>
