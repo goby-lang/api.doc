@@ -88,30 +88,6 @@ func classFromFile(filepath string) Class {
 	if instanceMethods != nil {
 		class.InstanceMethods = retrieveMethodsFromNode(fset, instanceMethods, allComments)
 	}
-	// allExpr := instanceMethods.Values[0].(*ast.CompositeLit).Elts
-	// var attrs []ast.Expr
-	// for _, expr := range allExpr {
-	// 	attrs = expr.(*ast.CompositeLit).Elts
-	// 	method := Method{}
-	// 	// Attributes should only contain "Name" & "Fn" for now
-	// 	for _, attr := range attrs {
-	// 		thisExpr := attr.(*ast.KeyValueExpr)
-	// 		name := thisExpr.Key.(*ast.Ident).Name
-	// 		if name == "Name" {
-	// 			method.FnName = strings.Replace(thisExpr.Value.(*ast.BasicLit).Value, "\"", "", -1)
-	// 			method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
-	// 		}
-	// 		if name == "Fn" {
-	// 			methodComments := allComments.findCommentFor(method.FnLine)
-	// 			method.Params = methodComments.Params
-	// 			method.Returns = methodComments.Returns
-	// 			method.Comment = template.HTML(methodComments.Description)
-	// 		}
-	// 	}
-	// 	allInstanceMethods = append(allInstanceMethods, method)
-	// }
-	//
-	// class.InstanceMethods = allInstanceMethods
 	return class
 }
 
@@ -175,6 +151,47 @@ func DirectInsertLinkToComment(text string, class_name string) string {
 	return strings.Replace(text, class_name, class_link, -1)
 }
 
+func insertClassLinksForMethods(methods Methods, classes Classes) Methods {
+	// loop methods in a class
+	for i, method := range methods {
+		text := string(method.Comment)
+		// insert link to method comment
+		for _, each_class := range classes {
+			text = InsertLinkToComment(text, each_class.Name)
+		}
+		methods[i].Comment = template.HTML(text)
+
+		// insert link to params
+		for j, param := range method.Params {
+			c := string(param.Class)
+			d := string(param.Description)
+			for _, each_class := range classes {
+				c = DirectInsertLinkToComment(c, each_class.Name)
+				d = DirectInsertLinkToComment(d, each_class.Name)
+			}
+			param.Class = template.HTML(c)
+			param.Description = template.HTML(d)
+			methods[i].Params[j] = param
+		}
+
+		// insert link to returns
+		for j, r := range method.Returns {
+			c := string(r.Class)
+			d := string(r.Description)
+			for _, each_class := range classes {
+				c = DirectInsertLinkToComment(c, each_class.Name)
+				d = DirectInsertLinkToComment(d, each_class.Name)
+			}
+			r.Class = template.HTML(c)
+			r.Description = template.HTML(d)
+			methods[i].Returns[j] = r
+		}
+
+	}
+
+	return methods
+}
+
 func InsertClassLinks(classes Classes) Classes {
 	var returned_classes Classes
 	// loop classes
@@ -185,42 +202,8 @@ func InsertClassLinks(classes Classes) Classes {
 			text = InsertLinkToComment(text, each_class.Name)
 		}
 
-		// loop methods in a class
-		for i, method := range class.InstanceMethods {
-			text := string(method.Comment)
-			// insert link to method comment
-			for _, each_class := range classes {
-				text = InsertLinkToComment(text, each_class.Name)
-			}
-			class.InstanceMethods[i].Comment = template.HTML(text)
-
-			// insert link to params
-			for j, param := range method.Params {
-				c := string(param.Class)
-				d := string(param.Description)
-				for _, each_class := range classes {
-					c = DirectInsertLinkToComment(c, each_class.Name)
-					d = DirectInsertLinkToComment(d, each_class.Name)
-				}
-				param.Class = template.HTML(c)
-				param.Description = template.HTML(d)
-				class.InstanceMethods[i].Params[j] = param
-			}
-
-			// insert link to returns
-			for j, r := range method.Returns {
-				c := string(r.Class)
-				d := string(r.Description)
-				for _, each_class := range classes {
-					c = DirectInsertLinkToComment(c, each_class.Name)
-					d = DirectInsertLinkToComment(d, each_class.Name)
-				}
-				r.Class = template.HTML(c)
-				r.Description = template.HTML(d)
-				class.InstanceMethods[i].Returns[j] = r
-			}
-
-		}
+		class.InstanceMethods = insertClassLinksForMethods(class.InstanceMethods, classes)
+		class.ClassMethods = insertClassLinksForMethods(class.ClassMethods, classes)
 
 		class.Comment = template.HTML(text)
 		returned_classes = append(returned_classes, class)
