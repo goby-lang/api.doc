@@ -47,28 +47,10 @@ func generateClassFile(classes Classes, class Class) {
 	panicIf(err)
 	classComment := blackfriday.MarkdownCommon([]byte(class.Comment))
 	class.Comment = template.HTML(string(classComment))
-	for i := 0; i < len(class.InstanceMethods); i++ {
-		methodComment := blackfriday.MarkdownCommon([]byte(class.InstanceMethods[i].Comment))
-		class.InstanceMethods[i].Comment = template.HTML(methodComment)
-		for j := 0; j < len(class.InstanceMethods[i].Params); j++ {
-			p := class.InstanceMethods[i].Params[j]
-			paramClass := blackfriday.MarkdownCommon([]byte(p.Class))
-			paramDesc := blackfriday.MarkdownCommon([]byte(p.Description))
-			paramClass = stripTag(paramClass)
-			paramDesc = stripTag(paramDesc)
-			class.InstanceMethods[i].Params[j].Class = template.HTML(paramClass)
-			class.InstanceMethods[i].Params[j].Description = template.HTML(paramDesc)
-		}
-		for j := 0; j < len(class.InstanceMethods[i].Returns); j++ {
-			r := class.InstanceMethods[i].Returns[j]
-			returnClass := blackfriday.MarkdownCommon([]byte(r.Class))
-			returnDesc := blackfriday.MarkdownCommon([]byte(r.Description))
-			returnClass = stripTag(returnClass)
-			returnDesc = stripTag(returnDesc)
-			class.InstanceMethods[i].Returns[j].Class = template.HTML(returnClass)
-			class.InstanceMethods[i].Returns[j].Description = template.HTML(returnDesc)
-		}
-	}
+
+	class.InstanceMethods = renderMethodCommentToMarkdown(class.InstanceMethods)
+	class.ClassMethods = renderMethodCommentToMarkdown(class.ClassMethods)
+
 	variables := map[string]interface{}{
 		"classes": classes,
 		"class":   class,
@@ -76,6 +58,32 @@ func generateClassFile(classes Classes, class Class) {
 	err = classTemplate.ExecuteTemplate(classFile, "layout", variables)
 	panicIf(err)
 	fmt.Println("Generated: ./docs/" + class.Filename + ".html")
+}
+
+func renderMethodCommentToMarkdown(methods Methods) Methods {
+	for i := 0; i < len(methods); i++ {
+		methodComment := blackfriday.MarkdownCommon([]byte(methods[i].Comment))
+		methods[i].Comment = template.HTML(methodComment)
+		for j := 0; j < len(methods[i].Params); j++ {
+			p := methods[i].Params[j]
+			paramClass := blackfriday.MarkdownCommon([]byte(p.Class))
+			paramDesc := blackfriday.MarkdownCommon([]byte(p.Description))
+			paramClass = stripTag(paramClass)
+			paramDesc = stripTag(paramDesc)
+			methods[i].Params[j].Class = template.HTML(paramClass)
+			methods[i].Params[j].Description = template.HTML(paramDesc)
+		}
+		for j := 0; j < len(methods[i].Returns); j++ {
+			r := methods[i].Returns[j]
+			returnClass := blackfriday.MarkdownCommon([]byte(r.Class))
+			returnDesc := blackfriday.MarkdownCommon([]byte(r.Description))
+			returnClass = stripTag(returnClass)
+			returnDesc = stripTag(returnDesc)
+			methods[i].Returns[j].Class = template.HTML(returnClass)
+			methods[i].Returns[j].Description = template.HTML(returnDesc)
+		}
+	}
+	return methods
 }
 
 func copyAsset(filename string) {
