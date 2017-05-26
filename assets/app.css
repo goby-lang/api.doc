@@ -127,7 +127,10 @@ code {
   padding-left: 10px;
 }
 
-.class-link {
-  font-style: italic;
+a, .class-link {
   text-decoration: none;
+}
+
+.bold {
+  font-weight: bold;
 }

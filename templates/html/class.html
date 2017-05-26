@@ -44,11 +44,10 @@
         </div>
         <div>
           {{ $length := len .Params }} {{ if gt $length 0 }}
-            <h4>Parameters</h4>
             {{ range .Params }}
               <ul>
                 <li>
-                  <span>{{.Name}}</span>
+                  <span><span class="bold">Parameter:</span> {{.Name}}</span>
                   <span>
                     {{ if ne .Class "" }}
                       ({{.Class}})
@@ -56,7 +55,7 @@
                     :
                   </span> 
                   {{ if eq .Description "" }}
-                    <span class="note">No Description</span>
+                    <span class="note">No Doc</span>
                   {{ else }}
                     <span>{{.Description}}</span>
                   {{ end }}
@@ -65,13 +64,12 @@
             {{ end }}
           {{ end }}
           {{ $length := len .Returns }} {{ if gt $length 0 }}
-            <h4>Returns</h4>
             {{ range .Returns }}
               <ul>
                 <li>
-                  <span>({{.Class}}) : </span>
+                  <span><span class="bold">Return:</span> ({{.Class}}) : </span>
                   {{ if eq .Description "" }}
-                    <span class="note">No Description</span>
+                    <span class="note">No Doc</span>
                   {{ else }}
                     <span>{{.Description}}</span></li>
                   {{ end }}
@@ -129,11 +127,10 @@
         </div>
         <div>
           {{ $length := len .Params }} {{ if gt $length 0 }}
-            <h4>Parameters</h4>
             {{ range .Params }}
               <ul>
                 <li>
-                  <span>{{.Name}}</span>
+                  <span><span class="bold">Parameter: </span>{{.Name}}</span>
                   <span>
                     {{ if ne .Class "" }}
                       ({{.Class}})
@@ -141,7 +138,7 @@
                     :
                   </span> 
                   {{ if eq .Description "" }}
-                    <span class="note">No Description</span>
+                    <span class="note">No Doc</span>
                   {{ else }}
                     <span>{{.Description}}</span>
                   {{ end }}
@@ -150,13 +147,12 @@
             {{ end }}
           {{ end }}
           {{ $length := len .Returns }} {{ if gt $length 0 }}
-            <h4>Returns</h4>
             {{ range .Returns }}
               <ul>
                 <li>
-                  <span>({{.Class}}) : </span>
+                  <span><span class="bold">Return: </span>({{.Class}}) : </span>
                   {{ if eq .Description "" }}
-                    <span class="note">No Description</span>
+                    <span class="note">No Doc</span>
                   {{ else }}
                     <span>{{.Description}}</span></li>
                   {{ end }}
