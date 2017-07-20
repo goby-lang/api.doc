@@ -55,18 +55,25 @@ func classFromFile(filepath string) Class {
 		// Continue only for general declarations
 		if genDecl, ok := decl.(*ast.GenDecl); ok {
 			for _, spec := range genDecl.Specs {
+
 				// Assign class line number if found
-				if tSpec, ok := spec.(*ast.TypeSpec); ok && class.MatchName(tSpec.Name.Name) {
+				tSpec, ok := spec.(*ast.TypeSpec)
+				if ok && class.MatchName(tSpec.Name.Name) {
 					node := tSpec.Name
 					class.Line = fset.Position(node.NamePos).Line
 				}
+
 				// Assign class methods if found
-				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchClassMethods(vSpec.Names[0].Name) {
-					classMethods = vSpec
-				}
-				// Assign instance methods if found
-				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchInstanceMethods(vSpec.Names[0].Name) {
-					instanceMethods = vSpec
+				vSpec, ok := spec.(*ast.ValueSpec)
+				if ok {
+					if class.MatchClassMethods(vSpec.Names[0].Name) {
+						classMethods = vSpec
+					}
+
+					// Assign instance methods if found
+					if class.MatchInstanceMethods(vSpec.Names[0].Name) {
+						instanceMethods = vSpec
+					}
 				}
 			}
 		}
