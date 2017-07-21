@@ -30,21 +30,15 @@
           </li>
         </a>
       
-        <a href="base_object.html">
-          <li class="">
-            BaseObject
-          </li>
-        </a>
-      
         <a href="boolean.html">
           <li class="">
             Boolean
           </li>
         </a>
       
-        <a href="class.html">
+        <a href="channel.html">
           <li class="">
-            Class
+            Channel
           </li>
         </a>
       
@@ -90,6 +84,12 @@
           </li>
         </a>
       
+        <a href="range.html">
+          <li class="">
+            Range
+          </li>
+        </a>
+      
         <a href="string.html">
           <li class="">
             String
@@ -105,7 +105,37 @@
 
     <h2>Description</h2>
     <hr />
-    <div><p>HashObject represents hash instances</p>
+    <div><p>HashObject represents hash instances
+ <a href="Hash.html">Hash</a> is a collection of key-value pair, which works like a dictionary.
+ <a href="Hash.html">Hash</a> literal is represented with curly brackets <code>{ }</code> like <code>{ key: value }</code>.
+ Each key of the hash is unique and cannot be duplicate within the hash.
+ Adding a leading space and a trailing space within curly brackets are preferable.</p>
+
+<ul>
+<li><strong>Key:</strong> an alphanumeric word that starts with alphabet, without containing space and punctuations.
+Underscore <code>_</code> can also be used within the key.
+<a href="String.html">String</a> literal like &ldquo;mickey mouse&rdquo; cannot be used as a hash key.
+The internal key is actually a <a href="String.html">String</a> and <strong>not a Symbol</strong> for now (TBD).
+Thus only a <a href="String.html">String</a> object or a string literal should be used when referencing with <code>[ ]</code>.</li>
+</ul>
+
+<pre><code class="language-ruby"> a = { balthazar1: 100 } # valid
+ b = { 2melchior: 200 }  # invalid
+ x = 'balthazar1'
+
+ a[&quot;balthazar1&quot;]  # =&gt; 100
+ a[x]             # =&gt; 100
+ a[balthazar1]    # =&gt; error
+</code></pre>
+
+<ul>
+<li><strong>Value:</strong> <a href="String.html">String</a> literal and objects (Integer, <a href="String.html">String</a>  <a href="Array.html">Array</a>  <a href="Hash.html">Hash</a>  nil, etc) can be used.</li>
+</ul>
+
+<p><strong>Note:</strong>
+ - The order of key-value pairs are <strong>not</strong> preserved.
+ - Operator <code>=&gt;</code> is not supported.
+ - <code>Hash.new</code> is not supported.</p>
 </div>
 
     <h2>Class Methods</h2>
@@ -117,78 +147,6 @@
 
     <h2>Instance Methods</h2>
     <hr />
-    
-      <h4 class="method">
-        <a class="prefix" href="#%5b%5d">#</a>
-        <p class="title" id="[]">
-          <span>[]</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/hash.go#L57" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%5b%5d%3d">#</a>
-        <p class="title" id="[]=">
-          <span>[]=</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/hash.go#L90" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#length">#</a>
-        <p class="title" id="length">
-          <span>length</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/hash.go#L115" target="_blank">
-          source
-        </a>)
-      </p>
     
   </div>
 

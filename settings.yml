@@ -18,4 +18,4 @@ gobypath: "/src/github.com/goby-lang/goby"
 #
 # The source always refers to a specific commit, so don't put in branch name like 'master' or 'development'.
 repo: "https://github.com/goby-lang/goby"
-commit: "64069b9916f61d76ee828d3983c5269e0dd037b3"
+commit: "a439b3a9fb4194c4ebe5388468d68cc755fa3b02"

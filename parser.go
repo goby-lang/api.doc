@@ -9,6 +9,8 @@ import (
 	"html/template"
 	"io/ioutil"
 	"strings"
+
+	"github.com/k0kubun/pp"
 )
 
 func ClassesFromDir(dir string) []Class {
@@ -62,19 +64,22 @@ func classFromFile(filepath string) Class {
 					node := tSpec.Name
 					class.Line = fset.Position(node.NamePos).Line
 				}
+			}
+		}
 
-				// Assign class methods if found
-				vSpec, ok := spec.(*ast.ValueSpec)
-				if ok {
-					if class.MatchClassMethods(vSpec.Names[0].Name) {
-						classMethods = vSpec
-					}
+		// Continue only for func declarations
+		if funcDecl, ok := decl.(*ast.FuncDecl); ok {
+			decl := funcDecl.Name.Name
+			// Assign instance methods if found
+			if class.MatchInstanceMethods(decl) {
+				//instanceMethods = funcDecl
+				pp.Println("MatchInstanceMethods: ", decl)
+			}
 
-					// Assign instance methods if found
-					if class.MatchInstanceMethods(vSpec.Names[0].Name) {
-						instanceMethods = vSpec
-					}
-				}
+			// Assign class methods if found
+			if class.MatchClassMethods(decl) {
+				pp.Println("MatchClassMethods: ", decl)
+				//classMethods = funcDecl
 			}
 		}
 	}

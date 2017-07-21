@@ -30,21 +30,15 @@
           </li>
         </a>
       
-        <a href="base_object.html">
-          <li class="">
-            BaseObject
-          </li>
-        </a>
-      
         <a href="boolean.html">
           <li class="">
             Boolean
           </li>
         </a>
       
-        <a href="class.html">
+        <a href="channel.html">
           <li class="">
-            Class
+            Channel
           </li>
         </a>
       
@@ -90,6 +84,12 @@
           </li>
         </a>
       
+        <a href="range.html">
+          <li class="">
+            Range
+          </li>
+        </a>
+      
         <a href="string.html">
           <li class="">
             String
@@ -105,7 +105,25 @@
 
     <h2>Description</h2>
     <hr />
-    <div><p>StringObject represents string instances</p>
+    <div><p>StringObject represents string instances
+ <a href="String.html">String</a> object holds and manipulates a sequence of characters.
+ <a href="String.html">String</a> objects may be created using as string literals.
+ Double or single quotations can be used for representation.</p>
+
+<pre><code class="language-ruby"> a = &quot;Three&quot;
+ b = 'zero'
+ c = '漢'
+ d = 'Tiếng Việt'
+ e = &quot;😏️️&quot;
+</code></pre>
+
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>Currently, manipulations are based upon Golang&rsquo;s Unicode manipulations.</li>
+<li>Currently, UTF-8 encoding is assumed based upon Golang&rsquo;s string manipulation, but the encoding is not actually specified(TBD).</li>
+<li><code>String.new</code> is not supported.</li>
+</ul>
 </div>
 
     <h2>Class Methods</h2>
@@ -117,366 +135,6 @@
 
     <h2>Instance Methods</h2>
     <hr />
-    
-      <h4 class="method">
-        <a class="prefix" href="#%2b">#</a>
-        <p class="title" id="&#43;">
-          <span>&#43;</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L63" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%2a">#</a>
-        <p class="title" id="*">
-          <span>*</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L80" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%3e">#</a>
-        <p class="title" id="&gt;">
-          <span>&gt;</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L106" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%3c">#</a>
-        <p class="title" id="&lt;">
-          <span>&lt;</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L128" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%3d%3d">#</a>
-        <p class="title" id="==">
-          <span>==</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L150" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%3c%3d%3e">#</a>
-        <p class="title" id="&lt;=&gt;">
-          <span>&lt;=&gt;</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L172" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#%21%3d">#</a>
-        <p class="title" id="!=">
-          <span>!=</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L197" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#capitalize">#</a>
-        <p class="title" id="capitalize">
-          <span>capitalize</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L219" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#upcase">#</a>
-        <p class="title" id="upcase">
-          <span>upcase</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L233" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#downcase">#</a>
-        <p class="title" id="downcase">
-          <span>downcase</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L244" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#size">#</a>
-        <p class="title" id="size">
-          <span>size</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L255" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#length">#</a>
-        <p class="title" id="length">
-          <span>length</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L266" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#reverse">#</a>
-        <p class="title" id="reverse">
-          <span>reverse</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L277" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#to_s">#</a>
-        <p class="title" id="to_s">
-          <span>to_s</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L292" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#to_i">#</a>
-        <p class="title" id="to_i">
-          <span>to_i</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/string.go#L303" target="_blank">
-          source
-        </a>)
-      </p>
     
   </div>
 
