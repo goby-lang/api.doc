@@ -131,20 +131,19 @@
 
       
   <div class="content">
-    <h1 class="class_name">Channel</h1>
+    <h1 class="class_name">Uri</h1>
 
     <h2>Description</h2>
     <hr />
-    <div><p>ChannelObject represents a goby channel, which carries a golang channel</p>
-</div>
+    <div></div>
 
     <h2>Class Methods</h2>
     <hr />
     
       <h4 class="method">
-        <a class="prefix" href="#new">#</a>
-        <p class="title" id="new">
-          <span>new</span>
+        <a class="prefix" href="#parse">#</a>
+        <p class="title" id="parse">
+          <span>parse</span>
            
            
            
@@ -152,7 +151,15 @@
       </h4>
       <div class="method-comment">
         <div>
-          
+          <p>Returns a Net::HTTP or Net::HTTPS&rsquo;s instance (depends on the url scheme).</p>
+
+<pre><code class="language-ruby"> u = URI.parse(&quot;https://example.com&quot;)
+ u.scheme # =&gt; &quot;https&quot;
+ u.host # =&gt; &quot;example.com&quot;
+ u.port # =&gt; 80
+ u.path # =&gt; &quot;/&quot;
+</code></pre>
+
         </div>
         <div>
            
@@ -160,7 +167,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/channel.go#L30" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/uri.go#L46" target="_blank">
           source
         </a>)
       </p>
@@ -171,78 +178,6 @@
 
     <h2>Instance Methods</h2>
     <hr />
-    
-      <h4 class="method">
-        <a class="prefix" href="#close">#</a>
-        <p class="title" id="close">
-          <span>close</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/channel.go#L44" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#deliver">#</a>
-        <p class="title" id="deliver">
-          <span>deliver</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/channel.go#L56" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#receive">#</a>
-        <p class="title" id="receive">
-          <span>receive</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/channel.go#L70" target="_blank">
-          source
-        </a>)
-      </p>
     
   </div>
 

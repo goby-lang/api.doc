@@ -1,0 +1,1774 @@
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/railscasts.min.css">
+    <link href="assets/app.css" rel="stylesheet"/>
+
+
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="assets/app.js"></script>
+
+    <title>Goby API Documentation</title>
+  </head>
+
+  <body>
+    <div class="container">
+      
+  <div class="sidebar">
+    <a href="index.html"><img src="https://avatars0.githubusercontent.com/u/27800482?v=3&s=200" alt="" class="logo" /></a>
+    <ul class="">
+      
+        <a href="array.html">
+          <li class="">
+            Array
+          </li>
+        </a>
+      
+        <a href="boolean.html">
+          <li class="">
+            Boolean
+          </li>
+        </a>
+      
+        <a href="channel.html">
+          <li class="">
+            Channel
+          </li>
+        </a>
+      
+        <a href="class.html">
+          <li class="">
+            Class
+          </li>
+        </a>
+      
+        <a href="error.html">
+          <li class="">
+            Error
+          </li>
+        </a>
+      
+        <a href="file.html">
+          <li class="">
+            File
+          </li>
+        </a>
+      
+        <a href="hash.html">
+          <li class="">
+            Hash
+          </li>
+        </a>
+      
+        <a href="http.html">
+          <li class="">
+            Http
+          </li>
+        </a>
+      
+        <a href="integer.html">
+          <li class="">
+            Integer
+          </li>
+        </a>
+      
+        <a href="method.html">
+          <li class="">
+            Method
+          </li>
+        </a>
+      
+        <a href="null.html">
+          <li class="">
+            Null
+          </li>
+        </a>
+      
+        <a href="object.html">
+          <li class="">
+            Object
+          </li>
+        </a>
+      
+        <a href="plugin.html">
+          <li class="">
+            Plugin
+          </li>
+        </a>
+      
+        <a href="range.html">
+          <li class="">
+            Range
+          </li>
+        </a>
+      
+        <a href="string.html">
+          <li class="">
+            String
+          </li>
+        </a>
+      
+        <a href="struct.html">
+          <li class="">
+            Struct
+          </li>
+        </a>
+      
+        <a href="uri.html">
+          <li class="">
+            Uri
+          </li>
+        </a>
+      
+    </ul>
+  </div>
+
+      
+  <div class="content">
+    <h1 class="class_name">Class</h1>
+
+    <h2>Description</h2>
+    <hr />
+    <div></div>
+
+    <h2>Class Methods</h2>
+    <hr />
+    
+      <h4 class="method">
+        <a class="prefix" href="#attr_accessor">#</a>
+        <p class="title" id="attr_accessor">
+          <span>attr_accessor</span>
+           
+            <span>(</span>
+              
+                
+                  <span>*args</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Null.html">Null</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Creates instance variables and corresponding methods that return the value of
+ each instance variable and assign an argument to each instance variable.
+ Only string literal can be used for now.</p>
+
+<pre><code class="language-ruby"> class Foo
+   attr_accessor(&quot;bar&quot;, &quot;buz&quot;)
+ end
+</code></pre>
+
+<p>is equivalent to:</p>
+
+<pre><code class="language-ruby"> class Foo
+   def bar
+     @bar
+   end
+   def buz
+     @buz
+   end
+   def bar=(val)
+     @bar = val
+   end
+   def buz=(val)
+     @buz = val
+   end
+ end
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> *args</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>One or more quoted method names for &lsquo;getter/setter&rsquo;</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="Null.html">Null</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L570" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#attr_reader">#</a>
+        <p class="title" id="attr_reader">
+          <span>attr_reader</span>
+           
+            <span>(</span>
+              
+                
+                  <span>*args</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Null.html">Null</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Creates instance variables and corresponding methods that return the value of each
+ instance variable.</p>
+
+<p>Only string literal can be used for now.</p>
+
+<pre><code class="language-ruby"> class Foo
+   attr_reader(&quot;bar&quot;, &quot;buz&quot;)
+ end
+</code></pre>
+
+<p>is equivalent to:</p>
+
+<pre><code class="language-ruby"> class Foo
+   def bar
+     @bar
+   end
+   def buz
+     @buz
+   end
+ end
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> *args</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>One or more quoted method names for &lsquo;getter&rsquo;</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="Null.html">Null</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L606" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#attr_writer">#</a>
+        <p class="title" id="attr_writer">
+          <span>attr_writer</span>
+           
+            <span>(</span>
+              
+                
+                  <span>*args</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Null.html">Null</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Creates instance variables and corresponding methods that assign an argument to each
+ instance variable. No return value.</p>
+
+<p>Only string literal can be used for now.</p>
+
+<pre><code class="language-ruby"> class Foo
+   attr_writer(&quot;bar&quot;, &quot;buz&quot;)
+ end
+</code></pre>
+
+<p>is equivalent to:</p>
+
+<pre><code class="language-ruby"> class Foo
+   def bar=(val)
+     @bar = val
+   end
+   def buz=(val)
+     @buz = val
+   end
+ end
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> *args</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>One or more quoted method names for &lsquo;setter&rsquo;</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="Null.html">Null</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L642" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#include">#</a>
+        <p class="title" id="include">
+          <span>include</span>
+           
+            <span>(</span>
+              
+                
+                  <span>module</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Null.html">Null</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Includes a module for mixin, which inherits only methods and constants from the module.
+ The included module is inserted into the path of the inheritance tree, between the class
+ and the superclass so that the methods of the module is prioritized to superclasses.</p>
+
+<p>The order of <code>include</code> affects: the modules that included later are prioritized.
+ If multiple modules include the same methods, the method will only come from
+ the last included module.</p>
+
+<pre><code class="language-ruby"> module Foo
+ def ten
+    10
+ end
+ end
+
+ module Bar
+   def ten
+     &quot;ten&quot;
+   end
+ end
+
+ class Baz
+   include(Foo)
+   include(Bar) # method `ten` is only included from this module
+ end
+
+ a = Baz.new
+ puts(a.ten) # =&gt; ten (overriden)
+</code></pre>
+
+<p><strong>Note</strong>:</p>
+
+<p>You cannot use string literal, or pass two or more arguments to <code>include</code>.</p>
+
+<pre><code class="language-ruby">   include(&quot;Foo&quot;)    # =&gt; error
+   include(Foo, Bar) # =&gt; error
+</code></pre>
+
+<p>Including modules into built-in classes such as <a href="String.html">String</a> are not supported:</p>
+
+<pre><code class="language-ruby"> module Foo
+   def ten
+     10
+   end
+ end
+ class String
+   include(Foo) # =&gt; error
+ end
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> module</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Class.html">Class</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Module name to include</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="Null.html">Null</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L707" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#name">#</a>
+        <p class="title" id="name">
+          <span>name</span>
+           
+            <span>(</span>
+              
+                
+                  <span>class</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the name of the class (receiver).</p>
+
+<pre><code class="language-ruby"> puts(Array.name)  # =&gt; Array
+ puts(Class.name)  # =&gt; Class
+ puts(Object.name) # =&gt; Object
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> class</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Class.html">Class</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Receiver</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span>receiver name</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L749" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#new">#</a>
+        <p class="title" id="new">
+          <span>new</span>
+           
+            <span>(</span>
+              
+                
+                  <span>class</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Object.html">Object</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Creates and returns a new anonymous class from a receiver.
+ You can use any classes you defined as the receiver:</p>
+
+<pre><code class="language-ruby"> class Foo
+ end
+ a = Foo.new
+</code></pre>
+
+<p>Note that the built-in classes such as <a href="Class.html">Class</a> or <a href="String.html">String</a> are not open for creating instances
+ and you can&rsquo;t call <code>new</code> against them.</p>
+
+<pre><code class="language-ruby"> a = Class.new  # =&gt; error
+ a = String.new # =&gt; error
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> class</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Class.html">Class</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Receiver</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="Object.html">Object</a>) : </span>
+                  
+                    <span>object</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L787" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#superclass">#</a>
+        <p class="title" id="superclass">
+          <span>superclass</span>
+           
+            <span>(</span>
+              
+                
+                  <span>class</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Object.html">Object</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the superclass object of the receiver.</p>
+
+<pre><code class="language-ruby"> puts(Array.superclass)  # =&gt; &lt;Class:Object&gt;
+ puts(String.superclass) # =&gt; &lt;Class:Object&gt;
+
+ class Foo;end
+ class Bar &lt; Foo
+ end
+ puts(Foo.superclass)    # =&gt; &lt;Class:Object&gt;
+ puts(Bar.superclass)    # =&gt; &lt;Class:Foo&gt;
+</code></pre>
+
+<p><strong>Note</strong>: the following is not supported:</p>
+
+<ul>
+<li><p><a href="Class.html">Class</a> class</p></li>
+
+<li><p><a href="Object.html">Object</a> class</p></li>
+
+<li><p>instance objects or object literals</p></li>
+</ul>
+
+<pre><code class="language-ruby"> puts(&quot;string&quot;.superclass) # =&gt; error
+ puts(Class.superclass)    # =&gt; error
+ puts(Object.superclass)   # =&gt; error
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> class</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Class.html">Class</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Receiver</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="Object.html">Object</a>) : </span>
+                  
+                    <span>object of the receiver</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L840" target="_blank">
+          source
+        </a>)
+      </p>
+    
+
+
+
+
+    <h2>Instance Methods</h2>
+    <hr />
+    
+      <h4 class="method">
+        <a class="prefix" href="#%3d%3d">#</a>
+        <p class="title" id="==">
+          <span>==</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span>@boolean</span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>General method for comparing equalty of the objects</p>
+
+<pre><code class="language-ruby"> 123 == 123   # =&gt; true
+ 123 == &quot;123&quot; # =&gt; false
+
+ # Hash will not concern about the key-value pair order
+ { a: 1, b: 2 } == { a: 1, b: 2 } # =&gt; true
+ { a: 1, b: 2 } == { b: 2, a: 1 } # =&gt; true
+
+ # Hash key will be override if the key duplicated
+ { a: 1, b: 2 } == { a: 2, b: 2, a: 1 } # =&gt; true
+ { a: 1, b: 2 } == { a: 1, b: 2, a: 2 } # =&gt; false
+
+ # Array will concern about the order of the elements
+ [1, 2, 3] == [1, 2, 3] # =&gt; true
+ [1, 2, 3] == [3, 2, 1] # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(@boolean) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L112" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%21%3d">#</a>
+        <p class="title" id="!=">
+          <span>!=</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span>@boolean</span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>General method for comparing inequalty of the objects</p>
+
+<pre><code class="language-ruby"> 123 != 123   # =&gt; false
+ 123 != &quot;123&quot; # =&gt; true
+
+ # Hash will not concern about the key-value pair order
+ { a: 1, b: 2 } != { a: 1, b: 2 } # =&gt; false
+ { a: 1, b: 2 } != { b: 2, a: 1 } # =&gt; false
+
+ # Hash key will be override if the key duplicated
+ { a: 1, b: 2 } != { a: 2, b: 2, a: 1 } # =&gt; false
+ { a: 1, b: 2 } != { a: 1, b: 2, a: 2 } # =&gt; true
+
+ # Array will concern about the order of the elements
+ [1, 2, 3] != [1, 2, 3] # =&gt; false
+ [1, 2, 3] != [3, 2, 1] # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(@boolean) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L145" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#import">#</a>
+        <p class="title" id="import">
+          <span>import</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L159" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#require">#</a>
+        <p class="title" id="require">
+          <span>require</span>
+           
+            <span>(</span>
+              
+                
+                  <span>filename</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Loads the given Goby library name without extension (mainly for modules), returning <code>true</code>
+ if successful and <code>false</code> if the feature is already loaded.</p>
+
+<p>Currently, only the following embedded Goby libraries are targeted:</p>
+
+<ul>
+<li>&ldquo;file&rdquo;</li>
+<li>&ldquo;net/http&rdquo;</li>
+<li>&ldquo;net/simple_server&rdquo;</li>
+<li>&ldquo;uri&rdquo;</li>
+</ul>
+
+<pre><code class="language-ruby"> require(&quot;file&quot;)
+ File.extname(&quot;foo.rb&quot;)
+</code></pre>
+
+<p>TBD: the load paths for <code>require</code></p>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>filename</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Quoted file name of the library, without extension</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span>of loading module</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L217" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#require_relative">#</a>
+        <p class="title" id="require_relative">
+          <span>require_relative</span>
+           
+            <span>(</span>
+              
+                
+                  <span>path/name</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Loads the Goby library (mainly for modules) from the given local path plus name
+ without extension from the current directory, returning <code>true</code> if successful,
+ and <code>false</code> if the feature is already loaded.</p>
+
+<pre><code class="language-ruby"> require_relative(&quot;../test_fixtures/require_test/foo&quot;)
+ fifty = Foo.bar(5)
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>path/name</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Quoted file path to library plus name, without extension</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span>of loading module</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L245" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#puts">#</a>
+        <p class="title" id="puts">
+          <span>puts</span>
+           
+            <span>(</span>
+              
+                
+                  <span>*args</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Null.html">Null</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Puts string literals or objects into stdout with a tailing line feed, converting into <a href="String.html">String</a>  if needed.</p>
+
+<pre><code class="language-ruby"> puts(&quot;foo&quot;, &quot;bar&quot;)
+ # =&gt; foo
+ # =&gt; bar
+ puts(&quot;baz&quot;, String.name)
+ # =&gt; baz
+ # =&gt; String
+ puts(&quot;foo&quot; + &quot;bar&quot;)
+ # =&gt; foobar
+</code></pre>
+
+<p>TODO: interpolation is needed to be implemented.</p>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>*args</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Class.html">Class</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span><a class="class-link"href="String.html">String</a>  literals, or other objects that can be converted into  <a href="String.html">String</a> .</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Null.html">Null</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L283" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#class">#</a>
+        <p class="title" id="class">
+          <span>class</span>
+           
+            <span>(</span>
+              
+                
+                  <span>object</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Class.html">Class</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the class of the object. Receiver cannot be omitted.</p>
+
+<p>FYI: You can convert the class into <a href="String.html">String</a> with <code>#name</code>.</p>
+
+<pre><code class="language-ruby"> puts(100.class)         # =&gt; &lt;Class:Integer&gt;
+ puts(100.class.name)    # =&gt; Integer
+ puts(&quot;123&quot;.class)       # =&gt; &lt;Class:String&gt;
+ puts(&quot;123&quot;.class.name)  # =&gt; String
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>object</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Object.html">Object</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>Receiver (required)</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Class.html">Class</a>) : </span>
+                  
+                    <span>class of the receiver</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L309" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%21">#</a>
+        <p class="title" id="!">
+          <span>!</span>
+           
+            <span>(</span>
+              
+                
+                  <span>object</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Object.html">Object</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Inverts the boolean value.</p>
+
+<pre><code class="language-ruby"> !true  # =&gt; false
+ !false # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>object</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Object.html">Object</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>object that return boolean value to invert</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Object.html">Object</a>) : </span>
+                  
+                    <span>boolean value</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L332" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#sleep">#</a>
+        <p class="title" id="sleep">
+          <span>sleep</span>
+           
+            <span>(</span>
+              
+                
+                  <span>sec</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Suspends the current thread for duration (sec).</p>
+
+<p><strong>Note:</strong> currently, parameter cannot be omitted, and only <a href="Integer.html">Integer</a> can be specified.</p>
+
+<pre><code class="language-ruby"> a = sleep(2)
+ puts(a)     # =&gt; 2
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>sec</span>
+                  <span>
+                    
+                      (<a class="class-link"href="Integer.html">Integer</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span>time to wait in sec</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span>time slept in sec</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L352" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_s">#</a>
+        <p class="title" id="to_s">
+          <span>to_s</span>
+           
+            <span>(</span>
+              
+                
+                  <span>n/a</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns object&rsquo;s string representation.</p>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>n/a</span>
+                  <span>
+                    
+                    :
+                  </span> 
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span>string representation.</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L366" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#block_given">#</a>
+        <p class="title" id="block_given">
+          <span>block_given</span>
+           
+            <span>(</span>
+              
+                
+                  <span>n/a</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if a block is given in the current context and <code>yield</code> is ready to call.</p>
+
+<p><strong>Note:</strong> The method name does not end with &lsquo;?&rsquo; because the sign is unavalable in Goby for now.</p>
+
+<pre><code class="language-ruby"> class File
+   def self.open(filename, mode, perm)
+     file = new(filename, mode, perm)
+
+     if block_given
+       yield(file)
+     end
+
+     file.close
+   end
+ end
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>n/a</span>
+                  <span>
+                    
+                    :
+                  </span> 
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L394" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#thread">#</a>
+        <p class="title" id="thread">
+          <span>thread</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L408" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#is_a">#</a>
+        <p class="title" id="is_a">
+          <span>is_a</span>
+           
+            <span>(</span>
+              
+                
+                  <span>n/a</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if <a href="Object.html">Object</a> class is equal to the input argument class</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.is_a(String)            # =&gt; true
+ 123.is_a(Integer)               # =&gt; true
+ [1, true, &quot;String&quot;].is_a(Array) # =&gt; true
+ { a: 1, b: 2 }.is_a(Hash)       # =&gt; true
+ &quot;Hello&quot;.is_a(Integer)           # =&gt; false
+ 123.is_a(Range)                 # =&gt; false
+ (2..4).is_a(Hash)               # =&gt; false
+ nil.is_a(Integer)               # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>n/a</span>
+                  <span>
+                    
+                    :
+                  </span> 
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L441" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#is_nil">#</a>
+        <p class="title" id="is_nil">
+          <span>is_nil</span>
+           
+            <span>(</span>
+              
+                
+                  <span>n/a</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if <a href="Object.html">Object</a> is nil</p>
+
+<pre><code class="language-ruby"> 123.is_nil            # =&gt; false
+ &quot;String&quot;.is_nil       # =&gt; false
+ { a: 1, b: 2 }.is_nil # =&gt; false
+ (3..5).is_nil         # =&gt; false
+ nil.is_nil            # =&gt; true  (See the implementation of Null#is_nil in vm/null.go file)
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter: </span>n/a</span>
+                  <span>
+                    
+                    :
+                  </span> 
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L483" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#instance_variable_get">#</a>
+        <p class="title" id="instance_variable_get">
+          <span>instance_variable_get</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L494" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#instance_variable_set">#</a>
+        <p class="title" id="instance_variable_set">
+          <span>instance_variable_set</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/class.go#L514" target="_blank">
+          source
+        </a>)
+      </p>
+    
+  </div>
+
+    </div>
+  </body>
+

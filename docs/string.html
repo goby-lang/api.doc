@@ -42,6 +42,12 @@
           </li>
         </a>
       
+        <a href="class.html">
+          <li class="">
+            Class
+          </li>
+        </a>
+      
         <a href="error.html">
           <li class="">
             Error
@@ -57,6 +63,12 @@
         <a href="hash.html">
           <li class="">
             Hash
+          </li>
+        </a>
+      
+        <a href="http.html">
+          <li class="">
+            Http
           </li>
         </a>
       
@@ -84,6 +96,12 @@
           </li>
         </a>
       
+        <a href="plugin.html">
+          <li class="">
+            Plugin
+          </li>
+        </a>
+      
         <a href="range.html">
           <li class="">
             Range
@@ -93,6 +111,18 @@
         <a href="string.html">
           <li class="">
             String
+          </li>
+        </a>
+      
+        <a href="struct.html">
+          <li class="">
+            Struct
+          </li>
+        </a>
+      
+        <a href="uri.html">
+          <li class="">
+            Uri
           </li>
         </a>
       
@@ -135,6 +165,1775 @@
 
     <h2>Instance Methods</h2>
     <hr />
+    
+      <h4 class="method">
+        <a class="prefix" href="#%2b">#</a>
+        <p class="title" id="&#43;">
+          <span>&#43;</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the concatenation of self and another <a href="String.html">String</a></p>
+
+<pre><code class="language-ruby"> &quot;first&quot; + &quot;-second&quot; # =&gt; &quot;first-second&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L72" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%2a">#</a>
+        <p class="title" id="*">
+          <span>*</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns self multiplying another <a href="Integer.html">Integer</a></p>
+
+<pre><code class="language-ruby"> &quot;string &quot; * 2 # =&gt; &quot;string string string &quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L97" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%3e">#</a>
+        <p class="title" id="&gt;">
+          <span>&gt;</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a <a href="Boolean.html">Boolean</a> if first string greater than second string</p>
+
+<pre><code class="language-ruby"> &quot;a&quot; &lt; &quot;b&quot; # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L131" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%3c">#</a>
+        <p class="title" id="&lt;">
+          <span>&lt;</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a <a href="Boolean.html">Boolean</a> if first string less than second string</p>
+
+<pre><code class="language-ruby"> &quot;a&quot; &lt; &quot;b&quot; # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L161" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%3d%3d">#</a>
+        <p class="title" id="==">
+          <span>==</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a <a href="Boolean.html">Boolean</a> of compared two strings</p>
+
+<pre><code class="language-ruby"> &quot;first&quot; == &quot;second&quot; # =&gt; false
+ &quot;two&quot; == &quot;two&quot; # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L192" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%3c%3d%3e">#</a>
+        <p class="title" id="&lt;=&gt;">
+          <span>&lt;=&gt;</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a <a href="Integer.html">Integer</a>  If first string is less than second string returns -1, if equal to returns 0, if greater returns 1</p>
+
+<pre><code class="language-ruby"> &quot;abc&quot; &lt;=&gt; &quot;abcd&quot; # =&gt; -1
+ &quot;abc&quot; &lt;=&gt; &quot;abc&quot; # =&gt; 0
+ &quot;abcd&quot; &lt;=&gt; &quot;abc&quot; # =&gt; 1
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L225" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%21%3d">#</a>
+        <p class="title" id="!=">
+          <span>!=</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a <a href="Boolean.html">Boolean</a> of compared two strings</p>
+
+<pre><code class="language-ruby"> &quot;first&quot; != &quot;second&quot; # =&gt; true
+ &quot;two&quot; != &quot;two&quot; # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L259" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%5b%5d">#</a>
+        <p class="title" id="[]">
+          <span>[]</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the character of the string with specified index
+ It will raise error if the input is not an <a href="Integer.html">Integer</a> type</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;[1]        # =&gt; &quot;e&quot;
+ &quot;Hello&quot;[5]        # =&gt; nil
+ &quot;Hello\nWorld&quot;[5] # =&gt; &quot;\n&quot;
+ &quot;Hello&quot;[-1]       # =&gt; &quot;o&quot;
+ &quot;Hello&quot;[-6]       # =&gt; nil
+ &quot;Hello😊&quot;[5]      # =&gt; &quot;😊&quot;
+ &quot;Hello😊&quot;[-1]     # =&gt; &quot;😊&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L295" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%5b%5d%3d">#</a>
+        <p class="title" id="[]=">
+          <span>[]=</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Replace character of the string with input string
+ It will raise error if the index is not <a href="Integer.html">Integer</a> type or the index value is out of
+ range of the string length</p>
+
+<p>Currently only support assign string type value
+ TODO: Support to assign type which have to_s method</p>
+
+<pre><code class="language-ruby"> &quot;Ruby&quot;[1] = &quot;oo&quot; # =&gt; &quot;Rooby&quot;
+ &quot;Go&quot;[2] = &quot;by&quot;   # =&gt; &quot;Goby&quot;
+ &quot;Hello\nWorld&quot;[5] = &quot; &quot; # =&gt; &quot;Hello World&quot;
+ &quot;Ruby&quot;[-3] = &quot;oo&quot; # =&gt; &quot;Rooby&quot;
+ &quot;Hello😊&quot;[5] = &quot;🐟&quot; # =&gt; &quot;Hello🐟&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L344" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#capitalize">#</a>
+        <p class="title" id="capitalize">
+          <span>capitalize</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Return a new <a href="String.html">String</a> with the first character converted to uppercase but the rest of string converted to lowercase.</p>
+
+<pre><code class="language-ruby"> &quot;test&quot;.capitalize         # =&gt; &quot;Test&quot;
+ &quot;tEST&quot;.capitalize         # =&gt; &quot;Test&quot;
+ &quot;heLlo\nWoRLd&quot;.capitalize # =&gt; &quot;Hello\nworld&quot;
+ &quot;😊HeLlO🐟&quot;.capitalize    # =&gt; &quot;😊hello🐟&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L403" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#chop">#</a>
+        <p class="title" id="chop">
+          <span>chop</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a string with the last character chopped</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.chop         # =&gt; &quot;Hell&quot;
+ &quot;Hello World\n&quot;.chop # =&gt; &quot;Hello World&quot;
+ &quot;Hello😊&quot;.chop       # =&gt; &quot;Hello&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L426" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#concat">#</a>
+        <p class="title" id="concat">
+          <span>concat</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a string which is concatenate with the input string or character</p>
+
+<pre><code class="language-ruby"> &quot;Hello &quot;.concat(&quot;World&quot;)   # =&gt; &quot;Hello World&quot;
+ &quot;Hello World&quot;.concat(&quot;😊&quot;) # =&gt; &quot;Hello World😊&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L447" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#count">#</a>
+        <p class="title" id="count">
+          <span>count</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the integer that count the string chars as UTF-8</p>
+
+<pre><code class="language-ruby"> &quot;abcde&quot;.count          # =&gt; 5
+ &quot;哈囉！世界！&quot;.count     # =&gt; 6
+ &quot;Hello\nWorld&quot;.count   # =&gt; 11
+ &quot;Hello\nWorld😊&quot;.count # =&gt; 12
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L477" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#delete">#</a>
+        <p class="title" id="delete">
+          <span>delete</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a string which is being partially deleted with specified values</p>
+
+<pre><code class="language-ruby"> &quot;Hello hello HeLlo&quot;.delete(&quot;el&quot;)        # =&gt; &quot;Hlo hlo HeLlo&quot;
+ &quot;Hello 😊 Hello 😊 Hello&quot;.delete(&quot;😊&quot;) # =&gt; &quot;Hello  Hello  Hello&quot;
+ # TODO: Handle delete intersection of multiple strings' input case
+ &quot;Hello hello HeLlo&quot;.delete(&quot;el&quot;, &quot;e&quot;) # =&gt; &quot;Hllo hllo HLlo&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L499" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#downcase">#</a>
+        <p class="title" id="downcase">
+          <span>downcase</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new <a href="String.html">String</a> with all characters is lowercase</p>
+
+<pre><code class="language-ruby"> &quot;erROR&quot;.downcase        # =&gt; &quot;error&quot;
+ &quot;HeLlO\tWorLD&quot;.downcase # =&gt; &quot;hello\tworld&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L527" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#empty">#</a>
+        <p class="title" id="empty">
+          <span>empty</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if string is empty value</p>
+
+<pre><code class="language-ruby"> &quot;&quot;.empty      # =&gt; true
+ &quot;Hello&quot;.empty # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L546" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#end_with">#</a>
+        <p class="title" id="end_with">
+          <span>end_with</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if receiver string end with the argument string</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.end_with(&quot;llo&quot;)     # =&gt; true
+ &quot;Hello&quot;.end_with(&quot;ell&quot;)     # =&gt; false
+ &quot;😊Hello🐟&quot;.end_with(&quot;🐟&quot;) # =&gt; true
+ &quot;😊Hello🐟&quot;.end_with(&quot;😊&quot;) # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L570" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#eql">#</a>
+        <p class="title" id="eql">
+          <span>eql</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if receiver string is equal to argument string</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.eql(&quot;Hello&quot;)     # =&gt; true
+ &quot;Hello&quot;.eql(&quot;World&quot;)     # =&gt; false
+ &quot;Hello😊&quot;.eql(&quot;Hello😊&quot;) # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L610" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#gsub">#</a>
+        <p class="title" id="gsub">
+          <span>gsub</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>TODO: Implement String#gsub When RegexObject Implemented
+ Returns a copy of str with the all occurrences of pattern substituted for the second argument.
+ The pattern is typically a <a href="String.html">String</a> or Regexp (Not implemented yet); if given as a <a href="String.html">String</a>  any
+ regular expression metacharacters it contains will be interpreted literally, e.g. &lsquo;\d&rsquo; will
+ match a backslash followed by ‘d’, instead of a digit.</p>
+
+<p>Currently only support string version of String#gsub.</p>
+
+<pre><code class="language-ruby"> &quot;Ruby Lang&quot;.gsub(&quot;Ru&quot;, &quot;Go&quot;)                # =&gt; &quot;Goby Lang&quot;
+ &quot;Hello 😊 Hello 😊 Hello&quot;.gsub(&quot;😊&quot;, &quot;🐟&quot;) # =&gt; &quot;Hello 🐟 Hello 🐟 Hello&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L644" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#include">#</a>
+        <p class="title" id="include">
+          <span>include</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span>Bool</span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Checks if the specified string is included in the receiver</p>
+
+<pre><code class="language-ruby"> &quot;Hello\nWorld&quot;.include(&quot;\n&quot;)   # =&gt; true
+ &quot;Hello 😊 Hello&quot;.include(&quot;😊&quot;) # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(Bool) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L680" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#insert">#</a>
+        <p class="title" id="insert">
+          <span>insert</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Insert a string input in specified index value of the receiver string</p>
+
+<p>It will raise error if index value is not an integer or index value is out
+ of receiver string&rsquo;s range</p>
+
+<p>It will also raise error if the input string value is not type string</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.insert(0, &quot;X&quot;) # =&gt; &quot;XHello&quot;
+ &quot;Hello&quot;.insert(2, &quot;X&quot;) # =&gt; &quot;HeXllo&quot;
+ &quot;Hello&quot;.insert(5, &quot;X&quot;) # =&gt; &quot;HelloX&quot;
+ &quot;Hello&quot;.insert(-1, &quot;X&quot;) # =&gt; &quot;HelloX&quot;
+ &quot;Hello&quot;.insert(-3, &quot;X&quot;) # =&gt; &quot;HelXlo&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L720" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#length">#</a>
+        <p class="title" id="length">
+          <span>length</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the character length of self
+ <strong>Note:</strong> the length is currently byte-based, instead of charcode-based.</p>
+
+<pre><code class="language-ruby"> &quot;zero&quot;.length # =&gt; 4
+ &quot;&quot;.length     # =&gt; 0
+ &quot;😊&quot;.length   # =&gt; 1
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L774" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#ljust">#</a>
+        <p class="title" id="ljust">
+          <span>ljust</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>If input integer is greater than the length of receiver string, returns a new <a href="String.html">String</a> of
+ length integer with receiver string left justified and padded with default &ldquo; &ldquo;; otherwise,
+ returns receiver string.</p>
+
+<p>It will raise error if the input string length is not integer type</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.ljust(2)           # =&gt; &quot;Hello&quot;
+ &quot;Hello&quot;.ljust(7)           # =&gt; &quot;Hello  &quot;
+ &quot;Hello&quot;.ljust(10, &quot;xo&quot;)    # =&gt; &quot;Helloxoxox&quot;
+ &quot;Hello&quot;.ljust(10, &quot;😊🐟&quot;) # =&gt; &quot;Hello😊🐟😊🐟😊&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L800" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#replace">#</a>
+        <p class="title" id="replace">
+          <span>replace</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Return a string replaced by the input string</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.replace(&quot;World&quot;)          # =&gt; &quot;World&quot;
+ &quot;你好&quot;replace(&quot;再見&quot;)              # =&gt; &quot;再見&quot;
+ &quot;Ruby\nLang&quot;.replace(&quot;Goby\nLang&quot;) # =&gt; &quot;Goby Lang&quot;
+ &quot;Hello😊&quot;.replace(&quot;World🐟&quot;)      # =&gt; &quot;World🐟&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L858" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#reverse">#</a>
+        <p class="title" id="reverse">
+          <span>reverse</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new <a href="String.html">String</a> with reverse order of self
+ <strong>Note:</strong> the length is currently byte-based, instead of charcode-based.</p>
+
+<pre><code class="language-ruby"> &quot;reverse&quot;.reverse           # =&gt; &quot;esrever&quot;
+ &quot;Hello\nWorld&quot;.reverse      # =&gt; &quot;dlroW\nolleH&quot;
+ &quot;Hello 😊🐟 World&quot;.reverse # =&gt; &quot;dlroW 🐟😊 olleH&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L887" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#rjust">#</a>
+        <p class="title" id="rjust">
+          <span>rjust</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>If input integer is greater than the length of receiver string, returns a new <a href="String.html">String</a> of
+ length integer with receiver string right justified and padded with default &ldquo; &ldquo;; otherwise,
+ returns receiver string.</p>
+
+<p>It will raise error if the input string length is not integer type</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.rjust(2)          # =&gt; &quot;Hello&quot;
+ &quot;Hello&quot;.rjust(7)          # =&gt; &quot;  Hello&quot;
+ &quot;Hello&quot;.rjust(10, &quot;xo&quot;)   # =&gt; &quot;xoxoxHello&quot;
+ &quot;Hello&quot;.rjust(10, &quot;😊🐟&quot;) # =&gt; &quot;😊🐟😊🐟😊Hello&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L918" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#size">#</a>
+        <p class="title" id="size">
+          <span>size</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the character length of self
+ <strong>Note:</strong> the length is currently byte-based, instead of charcode-based.</p>
+
+<pre><code class="language-ruby"> &quot;zero&quot;.size  # =&gt; 4
+ &quot;&quot;.size      # =&gt; 0
+ &quot;😊&quot;.size   # =&gt; 1
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L980" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#slice">#</a>
+        <p class="title" id="slice">
+          <span>slice</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a string sliced according to the input range</p>
+
+<pre><code class="language-ruby"> &quot;Hello World&quot;.slice(1..6)    # =&gt; &quot;ello W&quot;
+ &quot;1234567890&quot;.slice(6..1)     # =&gt; &quot;&quot;
+ &quot;1234567890&quot;.slice(11..1)    # =&gt; nil
+ &quot;1234567890&quot;.slice(11..-1)   # =&gt; nil
+ &quot;1234567890&quot;.slice(-10..1)   # =&gt; &quot;12&quot;
+ &quot;1234567890&quot;.slice(-5..1)    # =&gt; &quot;&quot;
+ &quot;1234567890&quot;.slice(-10..-1)  # =&gt; &quot;1234567890&quot;
+ &quot;1234567890&quot;.slice(-10..-11) # =&gt; &quot;&quot;
+ &quot;1234567890&quot;.slice(1..-1)    # =&gt; &quot;234567890&quot;
+ &quot;1234567890&quot;.slice(1..-1234) # =&gt; &quot;&quot;
+ &quot;1234567890&quot;.slice(-11..5)   # =&gt; nil
+ &quot;1234567890&quot;.slice(-10..-5)  # =&gt; &quot;123456&quot;
+ &quot;1234567890&quot;.slice(-5..-10)  # =&gt; &quot;&quot;
+ &quot;1234567890&quot;.slice(-11..-12) # =&gt; nil
+ &quot;1234567890&quot;.slice(-10..-12) # =&gt; &quot;&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(1..6)    # =&gt; &quot;ello 😊&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(-10..7)  # =&gt; &quot;o 😊🐟&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(1..-1)   # =&gt; &quot;ello 😊🐟 World&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(-12..-5) # =&gt; &quot;llo 😊🐟 W&quot;
+ &quot;Hello World&quot;.slice(4)       # =&gt; &quot;o&quot;
+ &quot;Hello\nWorld&quot;.slice(6)      # =&gt; &quot;\n&quot;
+ &quot;Hello World&quot;.slice(-3)      # =&gt; &quot;r&quot;
+ &quot;Hello World&quot;.slice(-11)     # =&gt; &quot;H&quot;
+ &quot;Hello World&quot;.slice(-12)     # =&gt; nil
+ &quot;Hello World&quot;.slice(11)      # =&gt; nil
+ &quot;Hello World&quot;.slice(4)       # =&gt; &quot;o&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(6)      # =&gt; &quot;😊&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(-7)      # =&gt; &quot;🐟&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(-10)     # =&gt; &quot;o&quot;
+ &quot;Hello 😊🐟 World&quot;.slice(-15)     # =&gt; nil
+ &quot;Hello 😊🐟 World&quot;.slice(14)      # =&gt; nil
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1029" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#split">#</a>
+        <p class="title" id="split">
+          <span>split</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Array.html">Array</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns an array of strings separated by the given separator</p>
+
+<pre><code class="language-ruby"> &quot;Hello World&quot;.split(&quot;o&quot;) # =&gt; [&quot;Hell&quot;, &quot; W&quot;, &quot;rld&quot;]
+ &quot;Goby&quot;.split(&quot;&quot;)         # =&gt; [&quot;G&quot;, &quot;o&quot;, &quot;b&quot;, &quot;y&quot;]
+ &quot;Hello\nWorld\nGoby&quot;.split(&quot;o&quot;) # =&gt; [&quot;Hello&quot;, &quot;World&quot;, &quot;Goby&quot;]
+ &quot;Hello🐟World🐟Goby&quot;.split(&quot;🐟&quot;) # =&gt; [&quot;Hello&quot;, &quot;World&quot;, &quot;Goby&quot;]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Array.html">Array</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1108" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#start_with">#</a>
+        <p class="title" id="start_with">
+          <span>start_with</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if receiver string start with the argument string</p>
+
+<pre><code class="language-ruby"> &quot;Hello&quot;.start_with(&quot;Hel&quot;)     # =&gt; true
+ &quot;Hello&quot;.start_with(&quot;hel&quot;)     # =&gt; false
+ &quot;😊Hello🐟&quot;.start_with(&quot;😊&quot;) # =&gt; true
+ &quot;😊Hello🐟&quot;.start_with(&quot;🐟&quot;) # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1145" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#strip">#</a>
+        <p class="title" id="strip">
+          <span>strip</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a copy of str with leading and trailing whitespace removed.
+ Whitespace is defined as any of the following characters: null, horizontal tab,
+ line feed, vertical tab, form feed, carriage return, space.</p>
+
+<pre><code class="language-ruby"> &quot;  Goby Lang  &quot;.strip   # =&gt; &quot;Goby Lang&quot;
+ &quot;\nGoby Lang\r\t&quot;.strip # =&gt; &quot;Goby Lang&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1186" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_a">#</a>
+        <p class="title" id="to_a">
+          <span>to_a</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns an array of characters converted from a string</p>
+
+<pre><code class="language-ruby"> &quot;Goby&quot;.to_a       # =&gt; [&quot;G&quot;, &quot;o&quot;, &quot;b&quot;, &quot;y&quot;]
+ &quot;😊Hello🐟&quot;.to_a # =&gt; [&quot;😊&quot;, &quot;H&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot;🐟&quot;]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1218" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_i">#</a>
+        <p class="title" id="to_i">
+          <span>to_i</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the result of converting self to <a href="Integer.html">Integer</a></p>
+
+<pre><code class="language-ruby"> &quot;123&quot;.to_i # =&gt; 123
+ &quot;3d print&quot;.to_i # =&gt; 3
+ &quot;some text&quot;.to_i # =&gt; 0
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1244" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_s">#</a>
+        <p class="title" id="to_s">
+          <span>to_s</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new <a href="String.html">String</a> with self value</p>
+
+<pre><code class="language-ruby"> &quot;string&quot;.to_s # =&gt; &quot;string&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1281" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#upcase">#</a>
+        <p class="title" id="upcase">
+          <span>upcase</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new <a href="String.html">String</a> with all characters is upcase</p>
+
+<pre><code class="language-ruby"> &quot;very big&quot;.upcase # =&gt; &quot;VERY BIG&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/string.go#L1299" target="_blank">
+          source
+        </a>)
+      </p>
     
   </div>
 

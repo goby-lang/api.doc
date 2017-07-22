@@ -42,6 +42,12 @@
           </li>
         </a>
       
+        <a href="class.html">
+          <li class="">
+            Class
+          </li>
+        </a>
+      
         <a href="error.html">
           <li class="">
             Error
@@ -57,6 +63,12 @@
         <a href="hash.html">
           <li class="">
             Hash
+          </li>
+        </a>
+      
+        <a href="http.html">
+          <li class="">
+            Http
           </li>
         </a>
       
@@ -84,6 +96,12 @@
           </li>
         </a>
       
+        <a href="plugin.html">
+          <li class="">
+            Plugin
+          </li>
+        </a>
+      
         <a href="range.html">
           <li class="">
             Range
@@ -93,6 +111,18 @@
         <a href="string.html">
           <li class="">
             String
+          </li>
+        </a>
+      
+        <a href="struct.html">
+          <li class="">
+            Struct
+          </li>
+        </a>
+      
+        <a href="uri.html">
+          <li class="">
+            Uri
           </li>
         </a>
       
@@ -119,6 +149,247 @@
 
     <h2>Instance Methods</h2>
     <hr />
+    
+      <h4 class="method">
+        <a class="prefix" href="#%3d%3d">#</a>
+        <p class="title" id="==">
+          <span>==</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if the receiver equals to the argument.</p>
+
+<pre><code class="language-Ruby"> 1 == 1 # =&gt; true
+ 100 == 33 # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/boolean.go#L56" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%21%3d">#</a>
+        <p class="title" id="!=">
+          <span>!=</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if the receiver is not equals to the argument.</p>
+
+<pre><code class="language-Ruby"> 4 != 2 # =&gt; true
+ 45 != 45 # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/boolean.go#L76" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%21">#</a>
+        <p class="title" id="!">
+          <span>!</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Reverse the receiver.</p>
+
+<pre><code class="language-ruby"> !true  # =&gt; false
+ !false # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/boolean.go#L95" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%26%26">#</a>
+        <p class="title" id="&amp;&amp;">
+          <span>&amp;&amp;</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if both the receiver and the argument are true.</p>
+
+<pre><code class="language-ruby"> 3 &gt; 2 &amp;&amp; 5 &gt; 3  # =&gt; true
+ 3 &gt; 2 &amp;&amp; 5 &gt; 10 # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/boolean.go#L117" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#%7c%7c">#</a>
+        <p class="title" id="||">
+          <span>||</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true either if the receiver or argument is true.</p>
+
+<pre><code class="language-ruby"> 3 &gt; 2 || 5 &gt; 3  # =&gt; true
+ 3 &gt; 2 || 5 &gt; 10 # =&gt; true
+ 2 &gt; 3 || 5 &gt; 10 # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/boolean.go#L148" target="_blank">
+          source
+        </a>)
+      </p>
     
   </div>
 
