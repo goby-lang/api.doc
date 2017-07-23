@@ -9,6 +9,8 @@ import (
 	"html/template"
 	"io/ioutil"
 	"strings"
+
+	"github.com/k0kubun/pp"
 )
 
 func ClassesFromDir(dir string) []Class {
@@ -48,26 +50,36 @@ func classFromFile(filepath string) Class {
 	// ast.Print(fset, f.Comments)
 
 	// Find class & methods
-	var classMethods *ast.ValueSpec
-	var instanceMethods *ast.ValueSpec
+	var classMethods *ast.FuncDecl
+	var instanceMethods *ast.FuncDecl
 	// Loop through declarations
 	for _, decl := range f.Decls {
 		// Continue only for general declarations
 		if genDecl, ok := decl.(*ast.GenDecl); ok {
 			for _, spec := range genDecl.Specs {
+
 				// Assign class line number if found
-				if tSpec, ok := spec.(*ast.TypeSpec); ok && class.MatchName(tSpec.Name.Name) {
+				tSpec, ok := spec.(*ast.TypeSpec)
+				if ok && class.MatchName(tSpec.Name.Name) {
 					node := tSpec.Name
 					class.Line = fset.Position(node.NamePos).Line
 				}
-				// Assign class methods if found
-				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchClassMethods(vSpec.Names[0].Name) {
-					classMethods = vSpec
-				}
-				// Assign instance methods if found
-				if vSpec, ok := spec.(*ast.ValueSpec); ok && class.MatchInstanceMethods(vSpec.Names[0].Name) {
-					instanceMethods = vSpec
-				}
+			}
+		}
+
+		// Continue only for func declarations
+		if funcDecl, ok := decl.(*ast.FuncDecl); ok {
+			decl := funcDecl.Name.Name
+			// Assign instance methods if found
+			if class.MatchInstanceMethods(decl) {
+				instanceMethods = funcDecl
+				pp.Println("MatchInstanceMethods: ", funcDecl.Name.Name)
+			}
+
+			// Assign class methods if found
+			if class.MatchClassMethods(decl) {
+				classMethods = funcDecl
+				pp.Println("MatchClassMethods: ", funcDecl)
 			}
 		}
 	}
@@ -91,20 +103,24 @@ func classFromFile(filepath string) Class {
 	return class
 }
 
-func retrieveMethodsFromNode(fset *token.FileSet, valueSpec *ast.ValueSpec, allComments AllComments) []Method {
+func retrieveMethodsFromNode(fset *token.FileSet, funcSpec *ast.FuncDecl, allComments AllComments) []Method {
 	methods := []Method{}
-	allExpr := valueSpec.Values[0].(*ast.CompositeLit).Elts
-	var attrs []ast.Expr
-	for _, expr := range allExpr {
-		attrs = expr.(*ast.CompositeLit).Elts
+
+	allStmt := funcSpec.Body.List[0]
+	stmt := allStmt.(*ast.ReturnStmt).Results[0]
+	exprs := stmt.(*ast.CompositeLit).Elts
+	for _, expr := range exprs {
 		method := Method{}
-		// Attributes should only contain "Name" & "Fn" for now
-		for _, attr := range attrs {
-			thisExpr := attr.(*ast.KeyValueExpr)
-			name := thisExpr.Key.(*ast.Ident).Name
+		//kvs := exprs.Key.(*ast.Ident).Name
+		kvs := expr.(*ast.CompositeLit).Elts
+		for _, kv := range kvs {
+			k := kv.(*ast.KeyValueExpr).Key
+			v := kv.(*ast.KeyValueExpr).Value
+			name := k.(*ast.Ident).Name
+			// Attributes should only contain "Name" & "Fn" for now
 			if name == "Name" {
-				method.FnName = strings.Replace(thisExpr.Value.(*ast.BasicLit).Value, "\"", "", -1)
-				method.FnLine = fset.Position(thisExpr.Key.(*ast.Ident).NamePos).Line
+				method.FnName = strings.Replace(v.(*ast.BasicLit).Value, "\"", "", -1)
+				method.FnLine = fset.Position(k.(*ast.Ident).NamePos).Line
 			}
 			if name == "Fn" {
 				methodComments := allComments.findCommentFor(method.FnLine)
@@ -112,6 +128,7 @@ func retrieveMethodsFromNode(fset *token.FileSet, valueSpec *ast.ValueSpec, allC
 				method.Returns = methodComments.Returns
 				method.Comment = template.HTML(methodComments.Description)
 			}
+			pp.Println(method)
 		}
 		methods = append(methods, method)
 	}

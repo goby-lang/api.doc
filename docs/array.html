@@ -30,15 +30,15 @@
           </li>
         </a>
       
-        <a href="base_object.html">
-          <li class="">
-            BaseObject
-          </li>
-        </a>
-      
         <a href="boolean.html">
           <li class="">
             Boolean
+          </li>
+        </a>
+      
+        <a href="channel.html">
+          <li class="">
+            Channel
           </li>
         </a>
       
@@ -66,6 +66,12 @@
           </li>
         </a>
       
+        <a href="http.html">
+          <li class="">
+            Http
+          </li>
+        </a>
+      
         <a href="integer.html">
           <li class="">
             Integer
@@ -90,9 +96,33 @@
           </li>
         </a>
       
+        <a href="plugin.html">
+          <li class="">
+            Plugin
+          </li>
+        </a>
+      
+        <a href="range.html">
+          <li class="">
+            Range
+          </li>
+        </a>
+      
         <a href="string.html">
           <li class="">
             String
+          </li>
+        </a>
+      
+        <a href="struct.html">
+          <li class="">
+            Struct
+          </li>
+        </a>
+      
+        <a href="uri.html">
+          <li class="">
+            Uri
           </li>
         </a>
       
@@ -137,7 +167,10 @@
 <pre><code class="language-ruby"> a = [1, 2, 3, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
  a[0]  # =&gt; 1
  a[3]  # =&gt; &quot;a&quot;
- a[10] # =&gt; null
+ a[10] # =&gt; nil
+ a[-1] # =&gt; &quot;c&quot;
+ a[-3] # =&gt; &quot;a&quot;
+ a[-7] # =&gt; nil
 </code></pre>
 
         </div>
@@ -147,7 +180,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L105" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L58" target="_blank">
           source
         </a>)
       </p>
@@ -170,7 +203,8 @@
 <pre><code class="language-ruby"> a = []
  a[0] = 10  # =&gt; 10
  a[3] = 20  # =&gt; 20
- a          # =&gt; [10, null, null, 20]
+ a          # =&gt; [10, nil, nil, 20]
+ a[-2] = 5  # =&gt; [10, nil, 5, 20]
 </code></pre>
 
         </div>
@@ -180,15 +214,15 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L141" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L101" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <a class="prefix" href="#length">#</a>
-        <p class="title" id="length">
-          <span>length</span>
+        <a class="prefix" href="#at">#</a>
+        <p class="title" id="at">
+          <span>at</span>
            
            
            
@@ -196,39 +230,14 @@
       </h4>
       <div class="method-comment">
         <div>
-          <p>Returns the length of the array.</p>
-
-<pre><code class="language-ruby"> [1, 2, 3].length # =&gt; 3
-</code></pre>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L183" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#pop">#</a>
-        <p class="title" id="pop">
-          <span>pop</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Removes the last element in the array and returns it.</p>
+          <p>Retrieves an object in an array using the index argument.
+ It raises an error if index out of range.</p>
 
 <pre><code class="language-ruby"> a = [1, 2, 3]
- a.pop # =&gt; 3
- a     # =&gt; [1, 2]
+ a.at(0)  # =&gt; 1
+ a.at(10) # =&gt; nil
+ a.at(-2) # =&gt; 2
+ a.at(-4) # =&gt; nil
 </code></pre>
 
         </div>
@@ -238,15 +247,15 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L204" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L157" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <a class="prefix" href="#push">#</a>
-        <p class="title" id="push">
-          <span>push</span>
+        <a class="prefix" href="#clear">#</a>
+        <p class="title" id="clear">
+          <span>clear</span>
            
            
            
@@ -254,10 +263,11 @@
       </h4>
       <div class="method-comment">
         <div>
-          <p>Appends the given object to the array and returns the array.</p>
+          <p>Removes all elements in the array and returns an empty array.</p>
 
 <pre><code class="language-ruby"> a = [1, 2, 3]
- a.push(4) # =&gt; [1, 2, 3, 4]
+ a.clear # =&gt; []
+ a       # =&gt; []
 </code></pre>
 
         </div>
@@ -267,15 +277,15 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L224" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L192" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <a class="prefix" href="#shift">#</a>
-        <p class="title" id="shift">
-          <span>shift</span>
+        <a class="prefix" href="#concat">#</a>
+        <p class="title" id="concat">
+          <span>concat</span>
            
            
            
@@ -283,11 +293,11 @@
       </h4>
       <div class="method-comment">
         <div>
-          <p>Removes the first element in the array and returns it.</p>
+          <p>Appends any number of argument to the array.</p>
 
 <pre><code class="language-ruby"> a = [1, 2, 3]
- a.shift # =&gt; 1
- a       # =&gt; [2, 3]
+ a.concat(4, 5, 6)
+ a # =&gt; [1, 2, 3, 4, 5, 6]
 </code></pre>
 
         </div>
@@ -297,7 +307,41 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L241" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L210" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#count">#</a>
+        <p class="title" id="count">
+          <span>count</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Loop through each element with the given block.
+ Return the sum of elements that return true from yield.</p>
+
+<pre><code class="language-ruby"> a = [1, 2, 3, 4, 5]
+
+ a.count do |e|
+   e * 2 &gt; 3
+ end
+ # =&gt; 4
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L243" target="_blank">
           source
         </a>)
       </p>
@@ -332,7 +376,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L266" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L311" target="_blank">
           source
         </a>)
       </p>
@@ -356,7 +400,104 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L283" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L328" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#first">#</a>
+        <p class="title" id="first">
+          <span>first</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the first element of the array.</p>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L347" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#last">#</a>
+        <p class="title" id="last">
+          <span>last</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the last element of the array.</p>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L367" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#length">#</a>
+        <p class="title" id="length">
+          <span>length</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the length of the array.</p>
+
+<pre><code class="language-ruby"> [1, 2, 3].length # =&gt; 3
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L393" target="_blank">
           source
         </a>)
       </p>
@@ -389,7 +530,99 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L310" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L417" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#pop">#</a>
+        <p class="title" id="pop">
+          <span>pop</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Removes the last element in the array and returns it.</p>
+
+<pre><code class="language-ruby"> a = [1, 2, 3]
+ a.pop # =&gt; 3
+ a     # =&gt; [1, 2]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L444" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#push">#</a>
+        <p class="title" id="push">
+          <span>push</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Appends the given object to the array and returns the array.</p>
+
+<pre><code class="language-ruby"> a = [1, 2, 3]
+ a.push(4) # =&gt; [1, 2, 3, 4]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L464" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#rotate">#</a>
+        <p class="title" id="rotate">
+          <span>rotate</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new array by putting the desired element as the first element.
+ Use integer index as an argument to retrieve the element.</p>
+
+<pre><code class="language-ruby"> a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+
+ a.rotate    # =&gt; [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;]
+ a.rotate(2) # =&gt; [&quot;c&quot;, &quot;d&quot;, &quot;a&quot;, &quot;b&quot;]
+ a.rotate(3) # =&gt; [&quot;d&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L484" target="_blank">
           source
         </a>)
       </p>
@@ -423,15 +656,15 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L341" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L521" target="_blank">
           source
         </a>)
       </p>
     
       <h4 class="method">
-        <a class="prefix" href="#at">#</a>
-        <p class="title" id="at">
-          <span>at</span>
+        <a class="prefix" href="#shift">#</a>
+        <p class="title" id="shift">
+          <span>shift</span>
            
            
            
@@ -439,12 +672,11 @@
       </h4>
       <div class="method-comment">
         <div>
-          <p>Retrieves an object in an array using the index argument.
- It raises an error if index out of range.</p>
+          <p>Removes the first element in the array and returns it.</p>
 
 <pre><code class="language-ruby"> a = [1, 2, 3]
- a.at(0)  # =&gt; 1
- a.at(10) # =&gt; Error
+ a.shift # =&gt; 1
+ a       # =&gt; [2, 3]
 </code></pre>
 
         </div>
@@ -454,184 +686,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L371" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#clear">#</a>
-        <p class="title" id="clear">
-          <span>clear</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Removes all elements in the array and returns an empty array.</p>
-
-<pre><code class="language-ruby"> a = [1, 2, 3]
- a.clear # =&gt; []
- a       # =&gt; []
-</code></pre>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L403" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#concat">#</a>
-        <p class="title" id="concat">
-          <span>concat</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Appends any number of argument to the array.</p>
-
-<pre><code class="language-ruby"> a = [1, 2, 3]
- a.concat(4, 5, 6)
- a # =&gt; [1, 2, 3, 4, 5, 6]
-</code></pre>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L421" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#count">#</a>
-        <p class="title" id="count">
-          <span>count</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Loop through each element with the given block.
- Return the sum of elements that return true from yield.</p>
-
-<pre><code class="language-ruby"> a = [1, 2, 3, 4, 5]
-
- a.count do |e|
-   e * 2 &gt; 3
- end
- # =&gt; 4
-</code></pre>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L454" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#rotate">#</a>
-        <p class="title" id="rotate">
-          <span>rotate</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Returns a new array by putting the desired element as the first element.
- Use integer index as an argument to retrieve the element.</p>
-
-<pre><code class="language-ruby"> a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
-
- a.rotate    # =&gt; [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;]
- a.rotate(2) # =&gt; [&quot;c&quot;, &quot;d&quot;, &quot;a&quot;, &quot;b&quot;]
- a.rotate(3) # =&gt; [&quot;d&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-</code></pre>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L520" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#first">#</a>
-        <p class="title" id="first">
-          <span>first</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Returns the first element of the array.</p>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L547" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#last">#</a>
-        <p class="title" id="last">
-          <span>last</span>
-           
-           
-           
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Returns the last element of the array.</p>
-
-        </div>
-        <div>
-           
-           
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/array.go#L567" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/array.go#L550" target="_blank">
           source
         </a>)
       </p>

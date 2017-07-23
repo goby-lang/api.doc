@@ -131,15 +131,46 @@
 
       
   <div class="content">
-    <h1 class="class_name">Object</h1>
+    <h1 class="class_name">Uri</h1>
 
     <h2>Description</h2>
     <hr />
-    <div><p>RObject represents any non built-in class&rsquo;s instance.</p>
-</div>
+    <div></div>
 
     <h2>Class Methods</h2>
     <hr />
+    
+      <h4 class="method">
+        <a class="prefix" href="#parse">#</a>
+        <p class="title" id="parse">
+          <span>parse</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a Net::HTTP or Net::HTTPS&rsquo;s instance (depends on the url scheme).</p>
+
+<pre><code class="language-ruby"> u = URI.parse(&quot;https://example.com&quot;)
+ u.scheme # =&gt; &quot;https&quot;
+ u.host # =&gt; &quot;example.com&quot;
+ u.port # =&gt; 80
+ u.path # =&gt; &quot;/&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/uri.go#L46" target="_blank">
+          source
+        </a>)
+      </p>
     
 
 

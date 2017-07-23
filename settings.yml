@@ -16,6 +16,6 @@ gobypath: "/src/github.com/goby-lang/goby"
 #
 #     "https://github.com/goby-lang/goby/tree/f32c1fcbfd7e1df021948de1065d342e95ebd03d/vm/integer.go#L20"
 #
-# The source always refers to a specific commit, so don't put in branch name like 'master' or 'development'.
+# The source always refers to a specific commit, so don't put in branch kvs like 'master' or 'development'.
 repo: "https://github.com/goby-lang/goby"
-commit: "64069b9916f61d76ee828d3983c5269e0dd037b3"
+commit: "25cfac50126b3cad0a28ba1334176b9d70a2ee04"

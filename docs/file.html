@@ -30,15 +30,15 @@
           </li>
         </a>
       
-        <a href="base_object.html">
-          <li class="">
-            BaseObject
-          </li>
-        </a>
-      
         <a href="boolean.html">
           <li class="">
             Boolean
+          </li>
+        </a>
+      
+        <a href="channel.html">
+          <li class="">
+            Channel
           </li>
         </a>
       
@@ -66,6 +66,12 @@
           </li>
         </a>
       
+        <a href="http.html">
+          <li class="">
+            Http
+          </li>
+        </a>
+      
         <a href="integer.html">
           <li class="">
             Integer
@@ -90,9 +96,33 @@
           </li>
         </a>
       
+        <a href="plugin.html">
+          <li class="">
+            Plugin
+          </li>
+        </a>
+      
+        <a href="range.html">
+          <li class="">
+            Range
+          </li>
+        </a>
+      
         <a href="string.html">
           <li class="">
             String
+          </li>
+        </a>
+      
+        <a href="struct.html">
+          <li class="">
+            Struct
+          </li>
+        </a>
+      
+        <a href="uri.html">
+          <li class="">
+            Uri
           </li>
         </a>
       
@@ -105,20 +135,21 @@
 
     <h2>Description</h2>
     <hr />
-    <div></div>
+    <div><p>FileObject is a special type that contains file pointer so we can keep track on target file.</p>
+</div>
 
     <h2>Class Methods</h2>
     <hr />
     
       <h4 class="method">
-        <a class="prefix" href="#extname">#</a>
-        <p class="title" id="extname">
-          <span>extname</span>
+        <a class="prefix" href="#basename">#</a>
+        <p class="title" id="basename">
+          <span>basename</span>
            
             <span>(</span>
               
                 
-                  <span>filename</span>
+                  <span>filepath</span>
                 
               
             <span>)</span>
@@ -137,9 +168,9 @@
       </h4>
       <div class="method-comment">
         <div>
-          <p>Returns extension part of a <a href="File.html">File</a></p>
+          <p>Returns the last element from path.</p>
 
-<pre><code class="language-ruby"> File.extname(&quot;loop.gb&quot;) # =&gt; .gb
+<pre><code class="language-ruby"> File.basename(&quot;/home/goby/plugin/loop.gb&quot;) # =&gt; loop.gb
 </code></pre>
 
         </div>
@@ -148,7 +179,7 @@
             
               <ul>
                 <li>
-                  <span><span class="bold">Parameter:</span> filename</span>
+                  <span><span class="bold">Parameter:</span> filepath</span>
                   <span>
                     
                       (<a class="class-link"href="String.html">String</a>)
@@ -177,7 +208,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/file.go#L29" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L43" target="_blank">
           source
         </a>)
       </p>
@@ -251,7 +282,246 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/file.go#L47" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L61" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#delete">#</a>
+        <p class="title" id="delete">
+          <span>delete</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L82" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#exist">#</a>
+        <p class="title" id="exist">
+          <span>exist</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L99" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#extname">#</a>
+        <p class="title" id="extname">
+          <span>extname</span>
+           
+            <span>(</span>
+              
+                
+                  <span>filename</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns extension part of file.</p>
+
+<pre><code class="language-ruby"> File.extname(&quot;loop.gb&quot;) # =&gt; .gb
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> filename</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L121" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#join">#</a>
+        <p class="title" id="join">
+          <span>join</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns string with joined elements.</p>
+
+<pre><code class="language-ruby"> File.join(&quot;home&quot;, &quot;goby&quot;, &quot;plugin&quot;) # =&gt; home/goby/plugin
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L136" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#new">#</a>
+        <p class="title" id="new">
+          <span>new</span>
+           
+            <span>(</span>
+              
+                
+                  <span>filename</span>
+                
+              
+            <span>)</span>
+          
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="File.html">File</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Finds the file with given filename and initializes a file object with it.</p>
+
+<pre><code class="language-ruby"> File.new(&quot;./samples/server.gb&quot;)
+</code></pre>
+
+        </div>
+        <div>
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Parameter:</span> filename</span>
+                  <span>
+                    
+                      (<a class="class-link"href="String.html">String</a>)
+                    
+                    :
+                  </span> 
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return:</span> (<a class="class-link"href="File.html">File</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L157" target="_blank">
           source
         </a>)
       </p>
@@ -323,126 +593,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/file.go#L75" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#basename">#</a>
-        <p class="title" id="basename">
-          <span>basename</span>
-           
-            <span>(</span>
-              
-                
-                  <span>filepath</span>
-                
-              
-            <span>)</span>
-          
-           
-            <span class="return-separator"> => </span>
-          
-           
-            
-              
-                <span><a class="class-link"href="String.html">String</a></span>
-              
-            
-          
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Returns the last element from path.</p>
-
-<pre><code class="language-ruby"> File.basename(&quot;/home/goby/plugin/loop.gb&quot;) # =&gt; loop.gb
-</code></pre>
-
-        </div>
-        <div>
-           
-            
-              <ul>
-                <li>
-                  <span><span class="bold">Parameter:</span> filepath</span>
-                  <span>
-                    
-                      (<a class="class-link"href="String.html">String</a>)
-                    
-                    :
-                  </span> 
-                  
-                    <span class="note">No Doc</span>
-                  
-                </li>
-              </ul>
-            
-          
-           
-            
-              <ul>
-                <li>
-                  <span><span class="bold">Return:</span> (<a class="class-link"href="String.html">String</a>) : </span>
-                  
-                    <span class="note">No Doc</span>
-                  
-                </li>
-              </ul>
-            
-          
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/file.go#L100" target="_blank">
-          source
-        </a>)
-      </p>
-    
-      <h4 class="method">
-        <a class="prefix" href="#join">#</a>
-        <p class="title" id="join">
-          <span>join</span>
-           
-           
-            <span class="return-separator"> => </span>
-          
-           
-            
-              
-                <span><a class="class-link"href="String.html">String</a></span>
-              
-            
-          
-        </p>
-      </h4>
-      <div class="method-comment">
-        <div>
-          <p>Returns string with joined elements.</p>
-
-<pre><code class="language-ruby"> File.join(&quot;home&quot;, &quot;goby&quot;, &quot;plugin&quot;) # =&gt; home/goby/plugin
-</code></pre>
-
-        </div>
-        <div>
-           
-           
-            
-              <ul>
-                <li>
-                  <span><span class="bold">Return:</span> (<a class="class-link"href="String.html">String</a>) : </span>
-                  
-                    <span class="note">No Doc</span>
-                  
-                </li>
-              </ul>
-            
-          
-        </div>
-      </div>
-      <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/file.go#L115" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L216" target="_blank">
           source
         </a>)
       </p>
@@ -514,7 +665,7 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/file.go#L136" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L241" target="_blank">
           source
         </a>)
       </p>
@@ -525,6 +676,149 @@
 
     <h2>Instance Methods</h2>
     <hr />
+    
+      <h4 class="method">
+        <a class="prefix" href="#close">#</a>
+        <p class="title" id="close">
+          <span>close</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L261" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#name">#</a>
+        <p class="title" id="name">
+          <span>name</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L272" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#read">#</a>
+        <p class="title" id="read">
+          <span>read</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L281" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#size">#</a>
+        <p class="title" id="size">
+          <span>size</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns size of file in bytes.</p>
+
+<pre><code class="language-ruby"> File.new(&quot;loop.gb&quot;).size # =&gt; 321123
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L302" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#write">#</a>
+        <p class="title" id="write">
+          <span>write</span>
+           
+           
+           
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          
+        </div>
+        <div>
+           
+           
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/file.go#L317" target="_blank">
+          source
+        </a>)
+      </p>
     
   </div>
 

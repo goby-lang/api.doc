@@ -30,15 +30,15 @@
           </li>
         </a>
       
-        <a href="base_object.html">
-          <li class="">
-            BaseObject
-          </li>
-        </a>
-      
         <a href="boolean.html">
           <li class="">
             Boolean
+          </li>
+        </a>
+      
+        <a href="channel.html">
+          <li class="">
+            Channel
           </li>
         </a>
       
@@ -66,6 +66,12 @@
           </li>
         </a>
       
+        <a href="http.html">
+          <li class="">
+            Http
+          </li>
+        </a>
+      
         <a href="integer.html">
           <li class="">
             Integer
@@ -90,9 +96,33 @@
           </li>
         </a>
       
+        <a href="plugin.html">
+          <li class="">
+            Plugin
+          </li>
+        </a>
+      
+        <a href="range.html">
+          <li class="">
+            Range
+          </li>
+        </a>
+      
         <a href="string.html">
           <li class="">
             String
+          </li>
+        </a>
+      
+        <a href="struct.html">
+          <li class="">
+            Struct
+          </li>
+        </a>
+      
+        <a href="uri.html">
+          <li class="">
+            Uri
           </li>
         </a>
       
@@ -105,7 +135,37 @@
 
     <h2>Description</h2>
     <hr />
-    <div><p>HashObject represents hash instances</p>
+    <div><p>HashObject represents hash instances
+ <a href="Hash.html">Hash</a> is a collection of key-value pair, which works like a dictionary.
+ <a href="Hash.html">Hash</a> literal is represented with curly brackets <code>{ }</code> like <code>{ key: value }</code>.
+ Each key of the hash is unique and cannot be duplicate within the hash.
+ Adding a leading space and a trailing space within curly brackets are preferable.</p>
+
+<ul>
+<li><strong>Key:</strong> an alphanumeric word that starts with alphabet, without containing space and punctuations.
+Underscore <code>_</code> can also be used within the key.
+<a href="String.html">String</a> literal like &ldquo;mickey mouse&rdquo; cannot be used as a hash key.
+The internal key is actually a <a href="String.html">String</a> and <strong>not a Symbol</strong> for now (TBD).
+Thus only a <a href="String.html">String</a> object or a string literal should be used when referencing with <code>[ ]</code>.</li>
+</ul>
+
+<pre><code class="language-ruby"> a = { balthazar1: 100 } # valid
+ b = { 2melchior: 200 }  # invalid
+ x = 'balthazar1'
+
+ a[&quot;balthazar1&quot;]  # =&gt; 100
+ a[x]             # =&gt; 100
+ a[balthazar1]    # =&gt; error
+</code></pre>
+
+<ul>
+<li><strong>Value:</strong> <a href="String.html">String</a> literal and objects (Integer, <a href="String.html">String</a>  <a href="Array.html">Array</a>  <a href="Hash.html">Hash</a>  nil, etc) can be used.</li>
+</ul>
+
+<p><strong>Note:</strong>
+ - The order of key-value pairs are <strong>not</strong> preserved.
+ - Operator <code>=&gt;</code> is not supported.
+ - <code>Hash.new</code> is not supported.</p>
 </div>
 
     <h2>Class Methods</h2>
@@ -124,20 +184,48 @@
           <span>[]</span>
            
            
+            <span class="return-separator"> => </span>
+          
            
+            
+              
+                <span><a class="class-link"href="Object.html">Object</a></span>
+              
+            
+          
         </p>
       </h4>
       <div class="method-comment">
         <div>
-          
+          <p>Retrieves the value (object) that corresponds to the key specified.
+ Returns <code>nil</code> when specifying a nonexistent key.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: 'v' } }
+ h['a'] #=&gt; 1
+ h['b'] #=&gt; &quot;2&quot;
+ h['c'] #=&gt; [1, 2, 3]
+ h['d'] #=&gt; { k: 'v' }
+</code></pre>
+
         </div>
         <div>
            
            
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Object.html">Object</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/hash.go#L57" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L86" target="_blank">
           source
         </a>)
       </p>
@@ -148,12 +236,179 @@
           <span>[]=</span>
            
            
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Object.html">Object</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Associates the value given by <code>value</code> with the key given by <code>key</code>.
+ Returns the <code>value</code>.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: 'v' } }
+ h['a'] = 1          #=&gt; 1
+ h['b'] = &quot;2&quot;        #=&gt; &quot;2&quot;
+ h['c'] = [1, 2, 3]  #=&gt; [1, 2, 3]
+ h['d'] = { k: 'v' } #=&gt; { k: 'v' }
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Object.html">Object</a>) : </span>
+                  
+                    <span>value</span></li>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L130" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#clear">#</a>
+        <p class="title" id="clear">
+          <span>clear</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns empty hash (no key-value pairs)</p>
+
+<pre><code class="language-Ruby"> { a: &quot;Hello&quot;, b: &quot;World&quot; }.clear # =&gt; {}
+ {}.clear                         # =&gt; {}
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L163" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#each_key">#</a>
+        <p class="title" id="each_key">
+          <span>each_key</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Array.html">Array</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Loop through keys of the hash with given block frame. It also returns array of
+ keys in alphabetical order.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: 'v' } }
+ h.each_key do |k|
+   puts k
+ end
+ # =&gt; a
+ # =&gt; b
+ # =&gt; c
+ # =&gt; d
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Array.html">Array</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L190" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#each_value">#</a>
+        <p class="title" id="each_value">
+          <span>each_value</span>
+           
+           
            
         </p>
       </h4>
       <div class="method-comment">
         <div>
-          
+          <p>Loop through values of the hash with given block frame. It also returns array of
+ values of the hash in the alphabetical order of its key</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: &quot;v&quot; } }
+ h.each_value do |v|
+   puts v
+ end
+ # =&gt; 1
+ # =&gt; &quot;2&quot;
+ # =&gt; [1, 2, 3]
+ # =&gt; { k: &quot;v&quot; }
+</code></pre>
+
         </div>
         <div>
            
@@ -161,7 +416,255 @@
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/hash.go#L90" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L230" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#empty">#</a>
+        <p class="title" id="empty">
+          <span>empty</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if hash has no key-value pairs</p>
+
+<pre><code class="language-Ruby"> {}.empty       # =&gt; true
+ { a: 1 }.empty # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L264" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#eql">#</a>
+        <p class="title" id="eql">
+          <span>eql</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if hash is exactly equal to another hash</p>
+
+<pre><code class="language-Ruby"> { a: &quot;Hello&quot;, b: &quot;World&quot; }.eql(1) # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L287" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#has_key">#</a>
+        <p class="title" id="has_key">
+          <span>has_key</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if the key exist in the hash. Currently, it can only input string
+ type object.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: &quot;v&quot; } }
+ h.has_key(&quot;a&quot;) # =&gt; true
+ h.has_key(&quot;e&quot;) # =&gt; false
+ # TODO: Support Symbol Type Key Input
+ h.has_key(:b)  # =&gt; true
+ h.has_key(:f)  # =&gt; false
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L319" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#has_value">#</a>
+        <p class="title" id="has_value">
+          <span>has_value</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns true if the value exist in the hash.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: &quot;v&quot; } }
+ h.has_value(1)          # =&gt; true
+ h.has_value(2)          # =&gt; false
+ h.has_value(&quot;2&quot;)        # =&gt; true
+ h.has_value([1, 2, 3])  # =&gt; true
+ h.has_value({ k: &quot;v&quot; }) # =&gt; true
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L354" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#keys">#</a>
+        <p class="title" id="keys">
+          <span>keys</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns an array of keys (in arbitrary order)</p>
+
+<pre><code class="language-Ruby"> { a: 1, b: &quot;2&quot;, c: [3, true, &quot;Hello&quot;] }.keys
+ # =&gt;  [&quot;c&quot;, &quot;b&quot;, &quot;a&quot;] or [&quot;b&quot;, &quot;a&quot;, &quot;c&quot;] ... etc
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L381" target="_blank">
           source
         </a>)
       </p>
@@ -172,20 +675,455 @@
           <span>length</span>
            
            
+            <span class="return-separator"> => </span>
+          
            
+            
+              
+                <span><a class="class-link"href="Integer.html">Integer</a></span>
+              
+            
+          
         </p>
       </h4>
       <div class="method-comment">
         <div>
-          
+          <p>Returns the number of key-value pairs of the hash.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3], d: { k: 'v' } }
+ h.length  #=&gt; 4
+</code></pre>
+
         </div>
         <div>
            
            
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Integer.html">Integer</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
         </div>
       </div>
       <p class="source">
-        (<a href="https://github.com/goby-lang/goby/tree/64069b9916f61d76ee828d3983c5269e0dd037b3/vm/hash.go#L115" target="_blank">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L406" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#map_values">#</a>
+        <p class="title" id="map_values">
+          <span>map_values</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new hash with the results of running the block once for every value.
+ This method does not change the keys and the receiver hash values.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: 2, c: 3 }
+ result = h.transform_values do |v|
+   v * 3
+ end
+ h      # =&gt; { a: 3, b: 6, c: 9 }
+ result # =&gt; { a: 3, b: 6, c: 9 }
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L432" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#merge">#</a>
+        <p class="title" id="merge">
+          <span>merge</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Hash.html">Hash</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns the number of key-value pairs of the hash.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: &quot;2&quot;, c: [1, 2, 3] }
+ h.merge({ b: &quot;Hello&quot;, d: &quot;World&quot; })
+ # =&gt; { a: 1, b: &quot;Hello&quot;, c: [1, 2, 3], d: &quot;World&quot; }
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Hash.html">Hash</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L462" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#sorted_keys">#</a>
+        <p class="title" id="sorted_keys">
+          <span>sorted_keys</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns an array of keys (in arbitrary order)</p>
+
+<pre><code class="language-Ruby"> { a: 1, b: &quot;2&quot;, c: [3, true, &quot;Hello&quot;] }.sorted_keys
+ # =&gt;  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+ { c: 1, b: &quot;2&quot;, a: [3, true, &quot;Hello&quot;] }.sorted_keys
+ # =&gt;  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+ { b: 1, c: &quot;2&quot;, a: [3, true, &quot;Hello&quot;] }.sorted_keys
+ # =&gt;  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+ { b: 1, c: &quot;2&quot;, b: [3, true, &quot;Hello&quot;] }.sorted_keys
+ # =&gt;  [&quot;b&quot;, &quot;c&quot;]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L504" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_a">#</a>
+        <p class="title" id="to_a">
+          <span>to_a</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Array.html">Array</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns two-dimensional array with the key-value pairs of hash. If specified true
+ then it will return sorted key value pairs array</p>
+
+<pre><code class="language-Ruby"> { a: 1, b: 2, c: 3 }.to_a
+ # =&gt; [[&quot;a&quot;, 1], [&quot;c&quot;, 3], [&quot;b&quot;, 2]] or [[&quot;b&quot;, 2], [&quot;c&quot;, 3], [&quot;a&quot;, 1]] ... etc
+ { a: 1, b: 2, c: 3 }.to_a(true)
+ # =&gt; [[&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3]]
+ { b: 1, a: 2, c: 3 }.to_a(true)
+ # =&gt; [[&quot;a&quot;, 2], [&quot;b&quot;, 1], [&quot;c&quot;, 3]]
+ { b: 1, a: 2, a: 3 }.to_a(true)
+ # =&gt; [[&quot;a&quot;, 3], [&quot;b&quot;, 1]]
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Array.html">Array</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L537" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_json">#</a>
+        <p class="title" id="to_json">
+          <span>to_json</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns json that is corresponding to the hash.
+ Basically just like Hash#to_json in Rails but currently doesn&rsquo;t support options.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: [1, &quot;2&quot;, [4, 5, nil], { foo: &quot;bar&quot; }]}.to_json
+ puts(h) #=&gt; {&quot;a&quot;:1,&quot;b&quot;:[1, &quot;2&quot;, [4, 5, null], {&quot;foo&quot;:&quot;bar&quot;}]}
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L587" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#to_s">#</a>
+        <p class="title" id="to_s">
+          <span>to_s</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="String.html">String</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns json that is corresponding to the hash.
+ Basically just like Hash#to_json in Rails but currently doesn&rsquo;t support options.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: [1, &quot;2&quot;, [4, 5, nil], { foo: &quot;bar&quot; }]}.to_s
+ puts(h) #=&gt; &quot;{ a: 1, b: [1, \&quot;2\&quot;, [4, 5, null], { foo: \&quot;bar \&quot; }] }&quot;
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="String.html">String</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L609" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#transform_values">#</a>
+        <p class="title" id="transform_values">
+          <span>transform_values</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns a new hash with the results of running the block once for every value.
+ This method does not change the keys and unlike Hash#map_values, it does not
+ change the receiver hash values.</p>
+
+<pre><code class="language-Ruby"> h = { a: 1, b: 2, c: 3 }
+ result = h.transform_values do |v|
+   v * 3
+ end
+ h      # =&gt; { a: 1, b: 2, c: 3 }
+ result # =&gt; { a: 3, b: 6, c: 9 }
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L636" target="_blank">
+          source
+        </a>)
+      </p>
+    
+      <h4 class="method">
+        <a class="prefix" href="#values">#</a>
+        <p class="title" id="values">
+          <span>values</span>
+           
+           
+            <span class="return-separator"> => </span>
+          
+           
+            
+              
+                <span><a class="class-link"href="Boolean.html">Boolean</a></span>
+              
+            
+          
+        </p>
+      </h4>
+      <div class="method-comment">
+        <div>
+          <p>Returns an array of values (in arbitrary order)</p>
+
+<pre><code class="language-Ruby"> { a: 1, b: &quot;2&quot;, c: [3, true, &quot;Hello&quot;] }.keys
+ # =&gt;  [1, &quot;2&quot;, [3, true, &quot;Hello&quot;]] or [&quot;2&quot;, [3, true, &quot;Hello&quot;], 1] ... etc
+</code></pre>
+
+        </div>
+        <div>
+           
+           
+            
+              <ul>
+                <li>
+                  <span><span class="bold">Return: </span>(<a class="class-link"href="Boolean.html">Boolean</a>) : </span>
+                  
+                    <span class="note">No Doc</span>
+                  
+                </li>
+              </ul>
+            
+          
+        </div>
+      </div>
+      <p class="source">
+        (<a href="https://github.com/goby-lang/goby/tree/25cfac50126b3cad0a28ba1334176b9d70a2ee04/vm/hash.go#L666" target="_blank">
           source
         </a>)
       </p>

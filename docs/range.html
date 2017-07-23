@@ -131,11 +131,27 @@
 
       
   <div class="content">
-    <h1 class="class_name">Object</h1>
+    <h1 class="class_name">Range</h1>
 
     <h2>Description</h2>
     <hr />
-    <div><p>RObject represents any non built-in class&rsquo;s instance.</p>
+    <div><p>RangeObject is the built in range class
+ <a href="Range.html">Range</a> represents an interval: a set of values from the beginning to the end specified.
+ Currently, only <a href="Integer.html">Integer</a> objects or integer literal are supported.</p>
+
+<pre><code class="language-ruby"> r = 0
+ (1..(1+4)).each do |i|
+   puts(r = r + i)
+ end
+</code></pre>
+
+<pre><code class="language-ruby"> r = 0
+ a = 1
+ b = 5
+ (a..b).each do |i|
+   r = r + i
+ end
+</code></pre>
 </div>
 
     <h2>Class Methods</h2>
